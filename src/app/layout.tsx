@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import { roboto } from "./ui/fonts";
-import Header from "./ui/layout/Header/Header";
+import Header from "./layout/Header/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,6 +18,7 @@ export default function RootLayout({
       <body className={`${roboto.className} antialiased`}>
         <Header />
         <main>{children}</main>
+        <div id="portal"></div>
       </body>
     </html>
   );
