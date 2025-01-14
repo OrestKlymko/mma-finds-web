@@ -17,12 +17,14 @@ const Portal = ({
   useEffect(() => {
     elRef.current = document.createElement("div");
     document.body.appendChild(elRef.current);
+    document.body.classList.add("overflow-hidden");
     setMounted(true);
 
     return () => {
       if (elRef.current) {
         document.body.removeChild(elRef.current);
       }
+      document.body.classList.remove("overflow-hidden");
     };
   }, []);
 

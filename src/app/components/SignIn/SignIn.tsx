@@ -4,6 +4,8 @@ import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
+import Password from "../../ui/inputs/Pasword";
+import CustomInput from "../../ui/inputs/CustomInput";
 
 type Inputs = {
   email: string;
@@ -30,25 +32,12 @@ function SignIn() {
       <h2>Welcome Back!</h2>
       <p>Enter your registration email and password.</p>
 
-      <Input
-        className="rounded-sm"
-        {...register("email")}
+      <CustomInput
         placeholder="Email*"
-        fullWidth
-        variant="bordered"
-        size="md"
-        radius="sm"
-      />
+        register={register("email", { required: true })}
+      ></CustomInput>
 
-      <Input
-        {...register("password")}
-        placeholder="Password*"
-        // type={isVisible ? "text" : "password"}
-        variant="bordered"
-        fullWidth
-        size="md"
-        radius="sm"
-      />
+      <Password register={register} option={{ required: true }} />
 
       <Link
         href={""}
@@ -57,19 +46,52 @@ function SignIn() {
         Forgot Password?
       </Link>
 
-      <Button type="submit" fullWidth>
+      <Button className="bg-black text-white" type="submit" fullWidth>
         Sign In
       </Button>
 
       <p className="text-center">or</p>
 
-      <Button color="secondary" radius="sm">
+      <Button
+        startContent={
+          <img
+            src="/icons/google-icon.svg"
+            alt="facebook"
+            style={{ width: 20 }}
+          />
+        }
+        variant="bordered"
+        radius="sm"
+        fullWidth
+      >
         Sign in with Google
       </Button>
 
-      <Button color="secondary">Sign in with Facebook</Button>
+      <Button
+        startContent={
+          <img
+            src="/icons/facebook-icon.svg"
+            alt="facebook"
+            style={{ width: 20 }}
+          />
+        }
+        variant="bordered"
+      >
+        Sign in with Facebook
+      </Button>
 
-      <Button color="default">Sign in with Apple</Button>
+      <Button
+        startContent={
+          <img
+            src="/icons/apple-icon.svg"
+            alt="facebook"
+            style={{ width: 20 }}
+          />
+        }
+        variant="bordered"
+      >
+        Sign in with Apple
+      </Button>
 
       <p>
         Don’t have an account? <Link href="/signup">Sign Up</Link>

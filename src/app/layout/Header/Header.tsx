@@ -6,6 +6,7 @@ import Link from "next/link";
 import Portal from "../../components/Portal/Portal";
 import { useState } from "react";
 import SignIn from "../../components/SignIn/SignIn";
+import SignUp from "../../components/SignUp/SignUp";
 
 function Header() {
   const [isSignIn, setIsSignIn] = useState(false);
@@ -45,15 +46,17 @@ function Header() {
         </div>
       </header>
 
-      {isSignIn && (
-        <Portal onClose={() => setIsSignIn(false)}>
-          <div className="">nekfnekvnk</div>
+      {isSignUp && (
+        <Portal onClose={() => setIsSignUp(false)}>
+          <div className="w-[700px] h-[600px] bg-gray overflow-y-auto">
+            <SignUp />
+          </div>
         </Portal>
       )}
 
-      {isSignUp && (
-        <Portal onClose={() => setIsSignUp(false)}>
-          <div className="w-[700px] h-[600px] bg-gray">
+      {isSignIn && (
+        <Portal onClose={() => setIsSignIn(false)}>
+          <div className="w-[700px] h-[600px] bg-gray overflow-y-auto">
             <SignIn />
           </div>
         </Portal>
