@@ -1,3 +1,4 @@
+import { heroui } from "@heroui/theme";
 import { nextui } from "@nextui-org/theme";
 import type { Config } from "tailwindcss";
 
@@ -6,13 +7,15 @@ export default {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|input|toggle|ripple|spinner|form).js"
+    "./node_modules/@nextui-org/theme/dist/components/(button|input|toggle|ripple|spinner|form).js",
+    "./node_modules/@heroui/theme/dist/components/(radio|select|form|listbox|divider|popover|button|ripple|spinner|scroll-shadow).js",
   ],
   theme: {
     extend: {
       colors: {
         background: "var(--background)",
         gray: "var(--background-gray)",
+        "gray-dark": "var(--background-gray-dark)",
         foreground: "var(--foreground)",
         backdrop: "var(--backdrop)",
         green: "#1B5441",
@@ -38,5 +41,6 @@ export default {
         },
       },
     }),
+    heroui(),
   ],
 } satisfies Config;

@@ -4,10 +4,11 @@ import Password from "../../ui/inputs/Pasword";
 import Link from "next/link";
 import { Button } from "@nextui-org/button";
 import FileInput from "../../ui/inputs/FileInput";
-import { Switch } from "@nextui-org/switch";
 import SwitchCustom from "../../ui/inputs/Switch";
 import ConfirmInput from "../../ui/inputs/ConfirmInput";
-import { get } from "http";
+import PhoneInput from "../../ui/inputs/PhoneInput";
+import { useEffect } from "react";
+import { ModalType, useModal } from "../../Providers/ModalProvider";
 
 type Inputs = {
   name: string;
@@ -19,20 +20,31 @@ type Inputs = {
   based: string;
   social: string;
   confirmEmail: string;
+  phone: string;
+  confirmPassword: string;
+  isAgree: boolean;
+  file: { file: File; width: number; height: number } | null;
 };
 
 function SignUp() {
   const {
     register,
-    formState: { errors },
+    formState: { errors, isDirty, isValid, isSubmitted, isSubmitting },
     handleSubmit,
     setValue,
     getValues,
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({ mode: "all" });
+  const { openModal } = useModal();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+    console.log(isValid, "isValid");
+    console.log(data, "data");
   };
+
+  useEffect(() => {
+    console.log(isValid, "isValid");
+    console.log(errors, "errors");
+  }, [isValid, errors]);
 
   return (
     <form
@@ -41,71 +53,104 @@ function SignUp() {
       style={{ maxWidth: 400, margin: "0 auto" }}
     >
       <h2>Sign Up as Manager</h2>
-      <p>Enter your registration email and password.</p>
 
-      <FileInput setValue={setValue} />
+      <FileInput
+        register={register("file", { required: true })}
+        label="Your profile picture*"
+        setValue={setValue}
+      />
 
       <CustomInput
-        placeholder="Name and Surname*"
+        label="Name and Surname*"
         register={register("name", { required: true })}
       ></CustomInput>
 
       <CustomInput
-        placeholder="Management Company Name"
-        register={register("management", {})}
+        label="Management Company Name"
+        register={register("management")}
       ></CustomInput>
 
       <CustomInput
-        placeholder="Based In*"
+        label="Based In*"
         register={register("based", { required: true })}
       ></CustomInput>
 
       <CustomInput
-        placeholder="Social Media*"
+        label="Social Media*"
         register={register("social", { required: true })}
       ></CustomInput>
 
-      <CustomInput
-        placeholder="About Me"
-        register={register("about", { required: true })}
-      ></CustomInput>
+      <CustomInput label="About Me" register={register("about")}></CustomInput>
 
-      <SwitchCustom register={register("isFighter", { required: true })}>
+      <SwitchCustom register={register("isFighter")}>
         I am a fighter representing myself
       </SwitchCustom>
 
       <CustomInput
-        placeholder="Email*"
+        label="Email*"
         register={register("email", { required: true })}
       ></CustomInput>
 
       <ConfirmInput
         checkValue={() => getValues("email")}
-        placeholder="Confirm Your Email*"
+        label="Confirm Your Email*"
         register={register("confirmEmail", {
           required: true,
           validate: (value) => value === getValues("email"),
         })}
       ></ConfirmInput>
 
-      <Password register={register} option={{ required: true }} />
+      <PhoneInput
+        register={register("phone", {
+          required: true,
+        })}
+        setValue={setValue}
+      ></PhoneInput>
 
-      <Link
-        href={""}
-        style={{ textAlign: "right", display: "block", marginTop: 5 }}
-      >
-        Forgot Password?
-      </Link>
+      <Password
+        validation
+        register={register("password", { required: true })}
+      />
+
+      <ConfirmInput
+        isPassword
+        checkValue={() => getValues("password")}
+        label="Confirm password"
+        register={register("confirmPassword", {
+          required: true,
+          validate: (value) => value === getValues("password"),
+        })}
+      ></ConfirmInput>
+
+      <SwitchCustom register={register("isAgree", { required: true })}>
+        <p className="text-[0.75rem]">
+          I agree with{" "}
+          <a className="text-green" href="#" target="_blank">
+            Terms and Conditions
+          </a>{" "}
+          and{" "}
+          <a className="text-green" href="#" target="_blank">
+            Privacy Policy
+          </a>
+          *
+        </p>
+      </SwitchCustom>
 
       <Button className="bg-black text-white" type="submit" fullWidth>
-        Sign In
+        Create my account
       </Button>
 
-      <p>
-        Don’t have an account?{" "}
-        <Link className="text-green" href="/signup">
-          Sign Up
-        </Link>
+      <p className="text-center text-sm">
+        Already have an account?{" "}
+        <button
+          className="text-green"
+          type="button"
+          onClick={() => {
+            openModal(ModalType.SignIn);
+          }}
+        >
+          Sign In
+        </button>
       </p>
     </form>
   );

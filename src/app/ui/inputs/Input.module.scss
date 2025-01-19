@@ -1,0 +1,15 @@
+.input[data-focus="true"] + .label,
+.input[data-filled="true"] + .label {
+  top: 0;
+  transform: translateY(-115%);
+  left: 4px;
+  font-size: 0.75rem;
+}
+
+.label {
+  transition: all 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+}

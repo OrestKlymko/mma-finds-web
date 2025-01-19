@@ -2,7 +2,7 @@ import { useState } from "react";
 import { getPhotoWidthHeight } from "../../lib/getPhotoDetails";
 import { UseFormSetValue } from "react-hook-form";
 import { LuUpload } from "react-icons/lu";
-import { div } from "framer-motion/client";
+import clsx from "clsx";
 
 export type PhotoDetails = {
   file: File;
@@ -10,7 +10,17 @@ export type PhotoDetails = {
   height: number;
 };
 
-function FileInput({ setValue }: { setValue: UseFormSetValue<any> }) {
+function FileInput({
+  setValue,
+  className,
+  label,
+  register,
+}: {
+  setValue: UseFormSetValue<any>;
+  className?: string;
+  label: string;
+  register: any;
+}) {
   const [fileName, setFileName] = useState<string>("");
 
   const inputFileHandler = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,9 +45,9 @@ function FileInput({ setValue }: { setValue: UseFormSetValue<any> }) {
   };
 
   return (
-    <div className="flex items-center justify-between">
+    <div className={clsx("flex items-center justify-between", className)}>
       <div>
-        <p className="text-base text-gray-500">Your profile picture*</p>
+        <p className="text-base text-gray-500">{label}</p>
         <p className="text-[0.7rem] text-gray-500">
           {fileName || "Please insert your logo or photo."}
         </p>
@@ -52,6 +62,7 @@ function FileInput({ setValue }: { setValue: UseFormSetValue<any> }) {
           id="file"
           accept=".jpg, .jpeg, .png"
           onChange={inputFileHandler}
+          {...register}
         />
         <LuUpload className="w-full" />
       </label>

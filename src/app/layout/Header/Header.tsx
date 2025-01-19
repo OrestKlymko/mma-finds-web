@@ -3,14 +3,10 @@
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
 import Link from "next/link";
-import Portal from "../../components/Portal/Portal";
-import { useState } from "react";
-import SignIn from "../../components/SignIn/SignIn";
-import SignUp from "../../components/SignUp/SignUp";
+import { ModalType, useModal } from "../../Providers/ModalProvider";
 
 function Header() {
-  const [isSignIn, setIsSignIn] = useState(false);
-  const [isSignUp, setIsSignUp] = useState(false);
+  const { openModal } = useModal();
 
   return (
     <>
@@ -31,7 +27,7 @@ function Header() {
             className="px-6"
             radius="sm"
             color="secondary"
-            onPress={() => setIsSignUp(true)}
+            onPress={() => openModal(ModalType.SignUp)}
           >
             Sign Up
           </Button>
@@ -39,28 +35,12 @@ function Header() {
             className="px-6"
             radius="sm"
             color="primary"
-            onPress={() => setIsSignIn(true)}
+            onPress={() => openModal(ModalType.Welcome)}
           >
             Sign In
           </Button>
         </div>
       </header>
-
-      {isSignUp && (
-        <Portal onClose={() => setIsSignUp(false)}>
-          <div className="w-[700px] h-[600px] bg-gray overflow-y-auto">
-            <SignUp />
-          </div>
-        </Portal>
-      )}
-
-      {isSignIn && (
-        <Portal onClose={() => setIsSignIn(false)}>
-          <div className="w-[700px] h-[600px] bg-gray overflow-y-auto">
-            <SignIn />
-          </div>
-        </Portal>
-      )}
     </>
   );
 }

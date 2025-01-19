@@ -9,6 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/radio": "^2.3.9",
+    "@heroui/select": "^2.4.9",
+    "@heroui/system": "^2.4.6",
+    "@heroui/theme": "^2.4.5",
     "@nextui-org/button": "^2.2.9",
     "@nextui-org/input": "^2.4.8",
     "@nextui-org/switch": "^2.2.8",
