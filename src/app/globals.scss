@@ -36,7 +36,7 @@ input[type="number"] {
 }
 
 h2 {
-  @apply text-3xl font-bold;
+  @apply text-4xl font-medium;
 }
 
 h3 {
@@ -45,4 +45,8 @@ h3 {
 
 h4 {
   @apply text-base font-medium text-green;
+}
+
+h5 {
+  @apply text-black text-medium font-normal opacity-50 leading-none;
 }

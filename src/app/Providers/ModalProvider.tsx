@@ -8,6 +8,7 @@ export enum ModalType {
   ForgotPassword = "ForgotPassword",
   AddFighter = "AddFighter",
   Welcome = "Welcome",
+  FightersList = "FightersList",
 }
 
 const ModalContext = createContext<{
@@ -21,7 +22,7 @@ const ModalContext = createContext<{
 });
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
-  const [modal, setModal] = useState<ModalType | null>(null); // Holds the modal name or ID to open
+  const [modal, setModal] = useState<ModalType | null>(null);
 
   const openModal = (modalName: ModalType) => {
     setModal(modalName);

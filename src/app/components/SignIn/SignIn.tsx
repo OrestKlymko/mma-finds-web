@@ -34,30 +34,31 @@ function SignIn() {
         onSubmit={handleSubmit(onSubmit)}
         style={{ maxWidth: 400, margin: "0 auto" }}
       >
-        <CustomInput
-          label="Email*"
-          register={register("email", { required: true })}
-        ></CustomInput>
+        <div className="flex flex-col gap-2">
+          <CustomInput
+            label="Email*"
+            register={register("email", {
+              required: true,
+              pattern: /^\S+@\S+$/i,
+            })}
+          ></CustomInput>
 
-        <Password register={register("password", { required: true })} />
-
+          <Password register={register("password", { required: true })} />
+        </div>
         <Link
           href={""}
           style={{ textAlign: "right", display: "block", marginTop: 5 }}
         >
           Forgot Password?
         </Link>
-
         <Button className="bg-black text-white" type="submit" fullWidth>
           Sign In
         </Button>
-
         <div className="flex items-center gap-2">
           <span className="block h-[1px] w-full bg-black"></span>
           <p className="text-center">or</p>
           <span className="block h-[1px] w-full bg-black"></span>
         </div>
-
         <Button
           startContent={
             <img
@@ -72,7 +73,6 @@ function SignIn() {
         >
           Sign in with Google
         </Button>
-
         <Button
           startContent={
             <img
@@ -85,7 +85,6 @@ function SignIn() {
         >
           Sign in with Facebook
         </Button>
-
         <Button
           startContent={
             <img
@@ -98,7 +97,6 @@ function SignIn() {
         >
           Sign in with Apple
         </Button>
-
         <p className="text-center">
           Don’t have an account?{" "}
           <button

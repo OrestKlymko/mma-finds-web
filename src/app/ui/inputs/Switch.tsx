@@ -1,4 +1,5 @@
 import { Switch } from "@nextui-org/switch";
+
 import { ReactNode } from "react";
 
 function SwitchCustom({
@@ -9,17 +10,19 @@ function SwitchCustom({
   register: any;
 }) {
   return (
-    <Switch
-      size="sm"
-      {...register}
-      color="secondary"
-      classNames={{
-        wrapper: "bg-[#949494] rounded-[0.2rem]",
-        thumb: "scale-[1.2]",
-      }}
-    >
-      {children}
-    </Switch>
+    <div className="pt-[1.5rem]">
+      <Switch
+        size="sm"
+        {...register}
+        color="secondary"
+        classNames={{
+          wrapper: "bg-[#949494] rounded-[0.2rem]",
+          thumb: "scale-[1.2]",
+        }}
+      >
+        {children}
+      </Switch>
+    </div>
   );
 }
 

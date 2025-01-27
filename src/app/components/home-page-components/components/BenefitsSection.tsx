@@ -7,35 +7,33 @@ function BenefitsSection() {
   const [isManager, setIsManager] = useState(true);
 
   return (
-    <section className="flex flex-col items-center px-4 py-28">
-      <h3 className="text-gray-500 uppercase tracking-wider text-sm mb-2 opacity-50">
-        WHY US
-      </h3>
-      <h1 className="text-2xl font-bold text-center mb-4">
-        Our Platforms Benefits
-      </h1>
-      <p className="text-center text-gray-600 max-w-2xl mb-6 ">
-        At MMA Finds, we carefully analyzed each step, ensuring that we
-        simplified processes to make them quick and effortless.
-      </p>{" "}
-      <ButtonGroup className="flex mb-8 rounded-sm w-full max-w-sm" size="lg">
-        <Button
-          onPress={() => setIsManager(true)}
-          color={isManager ? "secondary" : "primary"}
-          fullWidth
-          radius="sm"
-        >
-          Manager
-        </Button>
-        <Button
-          onPress={() => setIsManager(false)}
-          radius="sm"
-          color={!isManager ? "secondary" : "primary"}
-          fullWidth
-        >
-          Promotion
-        </Button>
-      </ButtonGroup>
+    <section className="flex flex-col gap-7 items-center px-32 py-28">
+      <h5 className="">WHY US</h5>
+      <div className="flex flex-col items-center gap-4">
+        <h2 className="">Our Platforms Benefits</h2>
+        <p className="text-center  max-w-2xl font-light">
+          At MMA Finds, we carefully analyzed each step, ensuring that we
+          simplified processes to make them quick and effortless.
+        </p>
+        <ButtonGroup className="flex rounded-sm w-full max-w-sm" size="lg">
+          <Button
+            onPress={() => setIsManager(true)}
+            color={isManager ? "secondary" : "primary"}
+            fullWidth
+            radius="sm"
+          >
+            Manager
+          </Button>
+          <Button
+            onPress={() => setIsManager(false)}
+            radius="sm"
+            color={!isManager ? "secondary" : "primary"}
+            fullWidth
+          >
+            Promotion
+          </Button>
+        </ButtonGroup>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full max-w-6xl">
         <div className="flex flex-col items-center p-6 bg-gray-50 rounded-lg shadow">
           <div className="text-3xl text-green-600 mb-4">🔄</div>

@@ -1,9 +1,9 @@
 import { Input } from "@nextui-org/input";
 import clsx from "clsx";
-import { div } from "framer-motion/client";
 import { ChangeEvent, useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import styles from "./Input.module.scss";
 
 function ConfirmInput({
   placeholder,
@@ -27,17 +27,24 @@ function ConfirmInput({
 
   return (
     <Input
+      className={clsx(styles.input)}
       type={isVisible && !isPassword ? "text" : "password"}
       {...register}
-      label={label}
       placeholder={placeholder}
       onChange={onChange}
+      label={label}
+      labelPlacement="outside"
       fullWidth
       variant="bordered"
-      size="sm"
-      classNames={{ innerWrapper: "relative" }}
+      size="md"
+      classNames={{
+        input: "z-10",
+        mainWrapper: "border border-black rounded-md",
+        inputWrapper: "border-none relative",
+        label: "text-[0.75rem]",
+      }}
       endContent={
-        <div className="flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2">
+        <div className="flex items-center gap-2 absolute right-[0.75rem] top-1/2 -translate-y-1/2">
           <FaCheckCircle
             className={clsx(
               !isCorrect ? "opacity-40" : "fill-green",

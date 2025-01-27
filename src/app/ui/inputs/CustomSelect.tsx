@@ -1,6 +1,8 @@
 "use client";
 
 import { Select, SelectItem } from "@heroui/select";
+import styles from "./Input.module.scss";
+import clsx from "clsx";
 
 function CustomSelect({
   items,
@@ -17,11 +19,16 @@ function CustomSelect({
     <Select
       className={className}
       {...register}
-      label={label}
       variant="bordered"
+      label={label}
+      labelPlacement="outside"
       fullWidth
-      size="sm"
-      classNames={{ selectorIcon: "scale-[1.4] rotate-[270deg]" }}
+      size="md"
+      classNames={{
+        selectorIcon: "scale-[1.4] rotate-[270deg]",
+        trigger: "border border-black",
+        label: "text-[0.75rem]",
+      }}
     >
       {items.map((item) => (
         <SelectItem key={item.key}>{item.label}</SelectItem>

@@ -1,7 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import CustomInput from "../../ui/inputs/CustomInput";
 import Password from "../../ui/inputs/Pasword";
-import Link from "next/link";
 import { Button } from "@nextui-org/button";
 import FileInput from "../../ui/inputs/FileInput";
 import SwitchCustom from "../../ui/inputs/Switch";
@@ -48,7 +47,7 @@ function SignUp() {
 
   return (
     <form
-      className="flex flex-col gap-4"
+      className="flex flex-col gap-2"
       onSubmit={handleSubmit(onSubmit)}
       style={{ maxWidth: 400, margin: "0 auto" }}
     >
@@ -88,7 +87,7 @@ function SignUp() {
 
       <CustomInput
         label="Email*"
-        register={register("email", { required: true })}
+        register={register("email", { required: true, pattern: /^\S+@\S+$/ })}
       ></CustomInput>
 
       <ConfirmInput
@@ -136,11 +135,11 @@ function SignUp() {
         </p>
       </SwitchCustom>
 
-      <Button className="bg-black text-white" type="submit" fullWidth>
+      <Button className="bg-black text-white mt-6" type="submit" fullWidth>
         Create my account
       </Button>
 
-      <p className="text-center text-sm">
+      <p className="text-center text-sm mt-6">
         Already have an account?{" "}
         <button
           className="text-green"

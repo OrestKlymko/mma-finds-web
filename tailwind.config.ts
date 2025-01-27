@@ -15,13 +15,18 @@ export default {
       colors: {
         background: "var(--background)",
         gray: "var(--background-gray)",
+        "gray-second": "#e8e8e8",
         "gray-dark": "var(--background-gray-dark)",
         foreground: "var(--foreground)",
         backdrop: "var(--backdrop)",
         green: "#1B5441",
+        yellow: "#ffd301",
       },
       boxShadow: {
         plain: "0 0 25px -5px rgb(0 0 0 / 0.1)",
+      },
+      fontSize: {
+        sm: "0.75rem",
       },
     },
   },

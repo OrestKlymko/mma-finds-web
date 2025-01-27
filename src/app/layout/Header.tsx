@@ -3,7 +3,7 @@
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
 import Link from "next/link";
-import { ModalType, useModal } from "../../Providers/ModalProvider";
+import { ModalType, useModal } from "../Providers/ModalProvider";
 
 function Header() {
   const { openModal } = useModal();
@@ -35,7 +35,7 @@ function Header() {
             className="px-6"
             radius="sm"
             color="primary"
-            onPress={() => openModal(ModalType.Welcome)}
+            onPress={() => openModal(ModalType.FightersList)}
           >
             Sign In
           </Button>

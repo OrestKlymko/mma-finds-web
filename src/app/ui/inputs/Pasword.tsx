@@ -41,34 +41,38 @@ function Password({
 
   return (
     <div className="flex flex-col gap-3">
-      <div className={clsx("relative", className)}>
-        <Input
-          className={clsx(className, styles.input)}
-          type={isVisible ? "text" : "password"}
-          {...register}
-          fullWidth
-          variant="bordered"
-          size="sm"
-          onChange={(e) => setPassword(e.target.value)}
-          classNames={{ innerWrapper: "relative" }}
-          data-focus={isVisible}
-          data-filled={password.length > 0}
-          endContent={
-            <button
-              type="button"
-              onClick={() => setIsVisible(!isVisible)}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2"
-            >
-              {isVisible ? (
-                <IoEyeOffOutline className="text-2xl text-default-400 pointer-events-none" />
-              ) : (
-                <IoEyeOutline className="text-2xl text-default-400 pointer-events-none" />
-              )}
-            </button>
-          }
-        />
-        <span className={styles.label}>Password*</span>
-      </div>
+      <Input
+        className={clsx(className)}
+        type={isVisible ? "text" : "password"}
+        {...register}
+        fullWidth
+        label="Password"
+        labelPlacement="outside"
+        variant="bordered"
+        size="md"
+        onChange={(e) => setPassword(e.target.value)}
+        classNames={{
+          inputWrapper: "border border-black",
+          input: "z-10",
+          label: "text-sm",
+        }}
+        data-focus={isVisible}
+        data-filled={password.length > 0}
+        endContent={
+          <button
+            type="button"
+            onClick={() => setIsVisible(!isVisible)}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2"
+          >
+            {isVisible ? (
+              <IoEyeOffOutline className="text-2xl text-default-400 pointer-events-none" />
+            ) : (
+              <IoEyeOutline className="text-2xl text-default-400 pointer-events-none" />
+            )}
+          </button>
+        }
+      />
+
       {validation && (
         <div>
           <div>

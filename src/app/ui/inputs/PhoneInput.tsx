@@ -4,6 +4,7 @@ import { Select, SelectItem } from "@heroui/select";
 import { Input } from "@nextui-org/input";
 import { useEffect, useState } from "react";
 import { UseFormSetValue } from "react-hook-form";
+import styles from "./Input.module.scss";
 
 type SelectData = {
   flag: string;
@@ -55,19 +56,23 @@ function PhoneInput({
   return (
     <Input
       className="pl-0"
-      label="Phone number*"
       labelPlacement="outside"
       {...register}
       fullWidth
       type="tel"
       variant="bordered"
-      size="lg"
+      label="Phone number*"
+      size="md"
       radius="sm"
       value={value}
       onChange={(e) => {
         setInputValue(e.target.value);
       }}
-      classNames={{ inputWrapper: "pl-0", input: "ml-[-0.675rem]" }}
+      classNames={{
+        inputWrapper: "border border-black pl-0",
+        input: "ml-[-0.675rem]",
+        label: "text-[0.75rem]",
+      }}
       startContent={
         <Select
           startContent={

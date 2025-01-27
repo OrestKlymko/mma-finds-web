@@ -6,9 +6,9 @@ function HeroSection() {
     <section className="bg-gray px-32 py-28 flex justify-between items-center">
       <div className="flex flex-col justify-center gap-8">
         <div className="flex flex-col gap-4">
-          <h1 className="uppercase text-4xl font-bold">
+          <h1 className="uppercase text-5xl font-extrabold">
             your ultimate <br />{" "}
-            <span className="text-green-800">matchmaking platform</span>
+            <span className="text-green">matchmaking platform</span>
           </h1>
           <p className="capitalize">
             safe time. expend possibilities. streamline communication. Earn
@@ -29,7 +29,7 @@ function HeroSection() {
           </Button>
         </div>
         <div>
-          <p className="text-[0.5rem] mb-1">
+          <p className="text-[0.75rem] mb-1 font-thin">
             Easily manage everything with on-the-go through our app.
           </p>
           <div className="flex gap-2 max-w-sm">
