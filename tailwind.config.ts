@@ -21,6 +21,8 @@ export default {
         backdrop: "var(--backdrop)",
         green: "#1B5441",
         yellow: "#ffd301",
+        "gray-text": "#ABABAB",
+        "gray-light": "#F2F2F2",
       },
       boxShadow: {
         plain: "0 0 25px -5px rgb(0 0 0 / 0.1)",

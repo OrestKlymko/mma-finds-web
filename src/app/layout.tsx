@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import "./globals.scss";
-import { roboto } from "./ui/fonts";
-import Providers from "./Providers/Providers";
-import Modal from "./components/Modal/Modal";
-import Header from "./layout/Header";
-import Footer from "./layout/Footer";
+import "../globals.scss";
+import Providers from "../components/Providers/Providers";
+import { roboto } from "../components/ui/fonts";
+import Header from "../components/layout/Header";
+import Modal from "../components/Modal/Modal";
+import Footer from "../components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,7 +22,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           <Modal />
-          <main>{children}</main>
+          <main className="min-h-[90dvh]">{children}</main>
           <div id="portal"></div>
           <Footer />
         </Providers>
