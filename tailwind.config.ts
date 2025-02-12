@@ -23,12 +23,14 @@ export default {
         yellow: "#ffd301",
         "gray-text": "#ABABAB",
         "gray-light": "#F2F2F2",
+        red: "#980909",
       },
       boxShadow: {
         plain: "0 0 25px -5px rgb(0 0 0 / 0.1)",
       },
       fontSize: {
         sm: "0.75rem",
+        xs: "0.65rem",
       },
     },
   },

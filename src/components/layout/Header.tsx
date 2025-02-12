@@ -11,9 +11,9 @@ import {
 import clsx from "clsx";
 import NavLink from "../ui/NavigatinLink";
 import { useUser } from "../Providers/UserProvider";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { CiMail } from "react-icons/ci";
 import { IoIosSearch } from "react-icons/io";
+import NotificationButton from "./NotificationButton/NotificationButton";
+import MailButton from "./MailButton/MailButton";
 
 function Header() {
   const { openModal } = useModal();
@@ -33,7 +33,7 @@ function Header() {
           })}
         >
           {navigationLinks.map((link) => (
-            <NavLink key={link.name} href={link.href} name={link.name}>
+            <NavLink key={link.name} href={link.href}>
               {link.name}
             </NavLink>
           ))}
@@ -62,12 +62,8 @@ function Header() {
             <div className="bg-gray-light rounded-full p-2">
               <IoIosSearch className="text-xl" />
             </div>
-            <div className="bg-gray-light rounded-full p-2">
-              <IoMdNotificationsOutline className="text-xl" />
-            </div>
-            <div className="bg-gray-light rounded-full p-2">
-              <CiMail className="text-xl" />
-            </div>
+            <NotificationButton />
+            <MailButton />
             <div
               className={clsx("h-full avatar_container relative", {
                 " avatar_container_online ": user.isOnline,

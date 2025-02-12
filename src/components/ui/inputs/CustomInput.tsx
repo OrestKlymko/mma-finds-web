@@ -10,13 +10,19 @@ function CustomInput({
   type,
   className,
   variant,
+  endContent,
+  onChange,
+  value,
 }: {
   placeholder?: string;
-  register: UseFormRegisterReturn;
+  register?: UseFormRegisterReturn;
   label?: string;
   type?: "number" | "text" | "email" | "date";
   className?: string;
   variant?: "bordered" | "underlined";
+  endContent?: React.ReactNode;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
 }) {
   return (
     <Input
@@ -29,6 +35,9 @@ function CustomInput({
       fullWidth
       variant={variant ? variant : "bordered"}
       size="md"
+      endContent={endContent}
+      onChange={onChange}
+      value={value}
       classNames={{
         input: "z-10",
         inputWrapper: clsx("border border-black", {

@@ -11,8 +11,9 @@ import WelcomeModal from "./components/WelcomeModal";
 import MyFightersModal from "./components/MyFightersModal";
 import CheckYourEmail from "./components/CheckYourEmail";
 import ResetPassword from "./components/ResetPassword";
+import { ReactNode } from "react";
 
-const ModalContent = ({ type }: { type: ModalType }) => {
+const ModalContent = ({ type }: { type: ModalType | ReactNode }) => {
   switch (type) {
     case ModalType.SignIn:
       return <SignIn />;
@@ -46,6 +47,8 @@ const Modal = () => {
           <ModalContent type={modal} />
         </MainModalLayout>
       )}
+
+      {typeof modal !== "string" && modal}
 
       {modal === ModalType.Welcome && <WelcomeModal />}
 

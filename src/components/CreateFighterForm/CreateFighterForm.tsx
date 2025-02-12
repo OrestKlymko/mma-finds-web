@@ -6,12 +6,12 @@ import { Input, Textarea } from "@nextui-org/input";
 import FileInput from "../ui/inputs/FileInput";
 import CustomInput from "../ui/inputs/CustomInput";
 import CustomSelect from "../ui/inputs/CustomSelect";
-import CustomRadioGroup from "../ui/inputs/CustomRadioQroup";
+import { CustomRadioGroup } from "../ui/inputs/CustomRadioQroup";
 import SwitchCustom from "../ui/inputs/Switch";
 import { Inputs } from "../../types/inputs";
 
 function CreateFighterForm() {
-  const { register, handleSubmit, setValue } = useForm<Inputs>();
+  const { register, handleSubmit, setValue, getValues } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data);
@@ -102,6 +102,7 @@ function CreateFighterForm() {
               />
               <CustomRadioGroup
                 className="w-full text-[0.75rem]"
+                checked={getValues("weightClassOption")}
                 items={[
                   { key: "cm", label: "cm" },
                   { key: "inch", label: "inch" },

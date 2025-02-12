@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import CustomRadioGroup from "../../components/ui/inputs/CustomRadioQroup";
+import { CustomRadioGroupControlled } from "../ui/inputs/CustomRadioQroup";
 import { countries } from "../../constants/contries";
 import { MMARules } from "../../constants/MMARules";
 import { promotion } from "../../constants/promotions";
@@ -10,6 +10,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { IoIosArrowForward } from "react-icons/io";
 import { Button } from "@nextui-org/button";
 import clsx from "clsx";
+import { useForm } from "react-hook-form";
+import { Inputs } from "../../types/inputs";
 
 enum ActiveFilterList {
   countries = "countries",
@@ -21,8 +23,17 @@ enum ActiveFilterList {
 function FighterFilter() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { register, handleSubmit, setValue, getValues } = useForm<Inputs>({
+    defaultValues: {
+      place: searchParams.get("place") || "",
+      promotions: searchParams.get("promotions") || "",
+      rules: searchParams.get("rules") || "",
+      weight: searchParams.get("weight") || "",
+    },
+  });
+
   const [place, setPlace] = useState<string | null>(
-    searchParams.get("position") || null
+    searchParams.get("place") || null
   );
   const [promotions, setPromotions] = useState<string | null>(
     searchParams.get("promotions") || null
@@ -109,9 +120,9 @@ function FighterFilter() {
     searchParams.get("position");
     const params = new URLSearchParams(searchParams.toString());
     if (place) {
-      params.set("position", place);
+      params.set("place", place);
     } else {
-      params.delete("position");
+      params.delete("place");
     }
     if (promotions) {
       params.set("promotions", promotions);
@@ -153,7 +164,7 @@ function FighterFilter() {
         <div className="flex flex-col gap-8 items-center">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
-              <CustomRadioGroup
+              <CustomRadioGroupControlled
                 label="Event Place"
                 bgColor="green"
                 name="countries"
@@ -173,7 +184,7 @@ function FighterFilter() {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <CustomRadioGroup
+              <CustomRadioGroupControlled
                 label="Promotions"
                 bgColor="green"
                 name="promotions"
@@ -193,7 +204,7 @@ function FighterFilter() {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <CustomRadioGroup
+              <CustomRadioGroupControlled
                 label="MMA Rules"
                 bgColor="green"
                 name="rules"
@@ -206,7 +217,7 @@ function FighterFilter() {
               />
             </div>
             <div className="flex items-center gap-2">
-              <CustomRadioGroup
+              <CustomRadioGroupControlled
                 label="Weight Class"
                 bgColor="green"
                 name="weight"

@@ -10,11 +10,15 @@ export enum ModalType {
   Welcome = "Welcome",
   FightersList = "FightersList",
   CheckEmail = "CheckEmail",
+  RejectParticipation = "RejectParticipation",
+  WeAreSorry = "WeAreSorry",
+  ApplyAFighter = "ApplyAFighter",
+  FeatureFighter = "FeatureFighter",
 }
 
 const ModalContext = createContext<{
-  modal: ModalType | null;
-  openModal: (modalName: ModalType) => void;
+  modal: ReactNode | null;
+  openModal: (modal: ReactNode | ModalType) => void;
   closeModal: () => void;
 }>({
   modal: null,
@@ -23,10 +27,10 @@ const ModalContext = createContext<{
 });
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
-  const [modal, setModal] = useState<ModalType | null>(null);
+  const [modal, setModal] = useState<ReactNode | ModalType | null>(null);
 
-  const openModal = (modalName: ModalType) => {
-    setModal(modalName);
+  const openModal = (modal: ReactNode | ModalType) => {
+    setModal(modal);
   };
 
   const closeModal = () => {

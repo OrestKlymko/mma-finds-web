@@ -21,7 +21,7 @@ const Portal = ({
     setMounted(true);
 
     return () => {
-      if (elRef.current) {
+      if (elRef.current && document.body.contains(elRef.current)) {
         document.body.removeChild(elRef.current);
       }
       document.body.classList.remove("overflow-hidden");

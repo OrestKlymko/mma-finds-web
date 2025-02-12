@@ -9,7 +9,7 @@ function FighterCard() {
   };
 
   return (
-    <div className="rounded-sm bg-gray flex gap-4 p-4 items-center">
+    <div className="rounded-md bg-gray flex gap-4 p-4 items-center">
       <div className="overflow-hidden rounded-full aspect-square w-[25%]">
         <Image
           className="h-full w-full aspect-square object-cover object-center"

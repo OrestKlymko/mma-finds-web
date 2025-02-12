@@ -29,4 +29,8 @@ export type Inputs = {
   confirmEmail: string;
   phone: string;
   confirmPassword: string;
+  place: string;
+  promotions: string;
+  rules: string;
+  weight: string;
 };

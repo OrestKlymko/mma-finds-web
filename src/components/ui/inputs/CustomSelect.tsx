@@ -8,11 +8,13 @@ function CustomSelect({
   register,
   label,
   className,
+  onChange,
 }: {
   className?: string;
   items: { key: string; label: string }[];
-  register: UseFormRegisterReturn;
+  register?: UseFormRegisterReturn;
   label?: string;
+  onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }) {
   return (
     <Select
@@ -22,6 +24,7 @@ function CustomSelect({
       label={label}
       labelPlacement="outside"
       fullWidth
+      onChange={onChange}
       size="md"
       classNames={{
         selectorIcon: "scale-[1.4] rotate-[270deg]",
