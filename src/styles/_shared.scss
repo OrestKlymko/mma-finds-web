@@ -17,6 +17,21 @@
   }
 }
 
+.underlined {
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease, left 0.3s ease;
+    width: 100%;
+    left: 0;
+  }
+}
+
 .avatar_online_detector {
   bottom: 0;
   right: 10%;

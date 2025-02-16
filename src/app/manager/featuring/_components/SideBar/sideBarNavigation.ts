@@ -15,7 +15,7 @@ export const navigation = [
       {
         title: "Balance Overview",
         icon: AiOutlineDollar,
-        link: "/manager/featuring",
+        link: "/manager/featuring/balance",
       },
       {
         title: "My Fighters",

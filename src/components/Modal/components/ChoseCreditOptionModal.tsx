@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { useState } from "react";
 import CustomInput from "../../ui/inputs/CustomInput";
-import { on } from "events";
 import PaymentMethod from "../../ui/inputs/PaymentMethod";
 import { Button } from "@nextui-org/button";
+import { useModal } from "../../Providers/ModalProvider";
+import SuccessFeatureCreditModal from "./SuccessFeatureCreditModal";
 
 const options = [
   { key: "1 Feature Credit", price: "€9,99" },
@@ -17,13 +18,17 @@ function ChoseCreditOptionModal() {
     price: "€9,99",
   });
   const [promoCode, setPromoCode] = useState<string>("");
+  const { openModal } = useModal();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPromoCode(e.target.value);
   };
 
-  const onApply = () => {
+  const onApplyPromo = () => {
     console.log("apply", promoCode);
+  };
+  const onPay = () => {
+    openModal(<SuccessFeatureCreditModal />);
   };
 
   return (
@@ -70,7 +75,7 @@ function ChoseCreditOptionModal() {
             onChange={onChange}
             placeholder="Enter your promo code here"
             endContent={
-              <button className="font-medium" onClick={onApply}>
+              <button className="font-medium" onClick={onApplyPromo}>
                 Apply
               </button>
             }
@@ -79,7 +84,9 @@ function ChoseCreditOptionModal() {
 
         <h3 className="font-medium">Payment Method</h3>
         <PaymentMethod />
-        <Button className="bg-black text-white">Pay {option.price}</Button>
+        <Button className="bg-black text-white" onPress={onPay}>
+          Pay {option.price}
+        </Button>
       </div>
     </div>
   );

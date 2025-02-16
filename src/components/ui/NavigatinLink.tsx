@@ -9,21 +9,26 @@ const NavLink = ({
   children,
   className,
   disableHover,
+  includes,
+  hovered,
 }: {
   href: string;
   children: React.ReactNode;
   className?: string;
   disableHover?: boolean;
+  includes?: boolean;
+  hovered?: boolean;
 }) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = !includes ? pathname === href : pathname.includes(href);
 
   return (
     <Link
       href={href}
       className={clsx("text-base text-nowrap whitespace-nowrap", className, {
         "text-green": isActive,
-        underline_hover: !disableHover && !isActive,
+        underline_hover: !disableHover && !isActive && !hovered,
+        underlined: hovered && isActive,
       })}
     >
       {children}

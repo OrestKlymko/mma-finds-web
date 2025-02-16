@@ -1,6 +1,7 @@
 export type Inputs = {
   name: string;
   password: string;
+  "new-password": string;
   nickname: string;
   sex: string;
   photo: { file: File; width: number; height: number } | null;
@@ -33,4 +34,7 @@ export type Inputs = {
   promotions: string;
   rules: string;
   weight: string;
+  instagram: string;
+  x: string;
+  facebook: string;
 };

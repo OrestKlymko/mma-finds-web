@@ -11,7 +11,7 @@ function Layout({ children }: { children: ReactNode }) {
       <section className="py-4 border-b-2 border-t-2 border-gray px-4">
         <Breadcrumbs />
       </section>
-      <section className="py-12">
+      <section className="py-12 px-4">
         <div className="max-w-screen-xl mx-auto flex gap-4">
           <SideBar />
           {children}

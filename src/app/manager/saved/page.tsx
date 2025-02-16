@@ -5,13 +5,21 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { IoIosSearch, IoMdClose } from "react-icons/io";
 import FighterFilter from "../../../components/FighterFilter/FighterFilter";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useCloseModal } from "../../../hooks/useCloseModal";
 import { useRouter, useSearchParams } from "next/navigation";
 import Breadcrumbs from "../../../components/Breadcrums/Breadcrums";
 import OfferCard from "../../../components/ui/OfferCard";
 
 function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Saved />
+    </Suspense>
+  );
+}
+
+function Saved() {
   const [isOpened, setIsOpened] = useState(false);
   const modalRef = useCloseModal(() => setIsOpened(false));
   const [arrOfParams, setArrOfParams] = useState<

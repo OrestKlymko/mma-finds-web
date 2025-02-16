@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 function Password({
+  label,
   register,
   validation,
   className,
@@ -14,6 +15,7 @@ function Password({
   register: UseFormRegisterReturn;
   validation?: boolean;
   className?: string;
+  label?: string;
 }) {
   const [isVisible, setIsVisible] = useState(false);
   const [password, setPassword] = useState("");
@@ -46,7 +48,7 @@ function Password({
         type={isVisible ? "text" : "password"}
         {...register}
         fullWidth
-        label="Password"
+        label={label ? label : "Password"}
         labelPlacement="outside"
         variant="bordered"
         size="md"

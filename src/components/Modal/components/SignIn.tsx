@@ -8,7 +8,6 @@ import CustomInput from "../../ui/inputs/CustomInput";
 import Password from "../../ui/inputs/Pasword";
 import { IoIosArrowBack } from "react-icons/io";
 import Image from "next/image";
-import SignUp from "./SignUp";
 
 type Inputs = {
   email: string;

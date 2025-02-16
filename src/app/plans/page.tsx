@@ -14,7 +14,7 @@ function Plans() {
         />
       </div>
       <div className="flex flex-col items-center">
-        <p>Hellow, David MMA</p>
+        <p>Hello, Oktagon MMA!</p>
         <h3>Choose your plan</h3>
       </div>
       <PlansList isAuthorized />

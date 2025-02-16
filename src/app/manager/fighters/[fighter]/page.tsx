@@ -3,7 +3,7 @@ import Breadcrumbs from "../../../../components/Breadcrums/Breadcrums";
 import Avatar from "../../../../components/ui/Avatar";
 import { Switch } from "@nextui-org/switch";
 import FightDetails from "../../../../components/ui/Table";
-import Image from "next/image";
+
 import { LuLink } from "react-icons/lu";
 import FighterCard from "../../../../components/ui/FighterCard";
 import Link from "next/link";

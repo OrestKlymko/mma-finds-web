@@ -10,8 +10,8 @@ export function CancelSubmission() {
     <FighterModalLayout>
       <h6 className="text-red text-base">Cancel Submission</h6>
       <p className="text-center">
-        Before finalizing, are you sure about canceling John's submission for
-        the upcoming fight?
+        Before finalizing, are you sure about canceling John&apos;s submission
+        for the upcoming fight?
       </p>
       <Button className="bg-[#3D3D3D] text-white text-sm max-w-[300px] w-full">
         Keep Submission

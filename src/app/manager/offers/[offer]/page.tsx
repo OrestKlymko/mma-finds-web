@@ -5,6 +5,7 @@ import { Button } from "@nextui-org/button";
 import OfferCard from "../../../../components/ui/OfferCard";
 import { IoIosHeart } from "react-icons/io";
 import SubmitFighterSection from "./_components/SubmitFighterSection";
+import { Suspense } from "react";
 
 function Page() {
   const fightData = [
@@ -29,7 +30,7 @@ function Page() {
     },
   ];
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <section className="py-4 border-b-2 border-t-2 border-gray px-4">
         <Breadcrumbs />
       </section>
@@ -192,7 +193,7 @@ function Page() {
           </div>
         </div>
       </section>
-    </>
+    </Suspense>
   );
 }
 

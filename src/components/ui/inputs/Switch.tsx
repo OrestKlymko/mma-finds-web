@@ -11,7 +11,7 @@ function SwitchCustom({
   register: UseFormRegisterReturn;
 }) {
   return (
-    <div className="pt-[1.5rem]">
+    <div className="pt-[1.5rem] flex gap-2 items-center">
       <Switch
         size="sm"
         {...register}
@@ -20,9 +20,8 @@ function SwitchCustom({
           wrapper: "bg-[#949494] rounded-[0.2rem]",
           thumb: "scale-[1.2]",
         }}
-      >
-        {children}
-      </Switch>
+      ></Switch>
+      {children}
     </div>
   );
 }

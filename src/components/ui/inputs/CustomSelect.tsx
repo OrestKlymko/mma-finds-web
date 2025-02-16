@@ -11,7 +11,7 @@ function CustomSelect({
   onChange,
 }: {
   className?: string;
-  items: { key: string; label: string }[];
+  items: { key: string; label?: string; value?: string }[];
   register?: UseFormRegisterReturn;
   label?: string;
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -33,7 +33,7 @@ function CustomSelect({
       }}
     >
       {items.map((item) => (
-        <SelectItem key={item.key}>{item.label}</SelectItem>
+        <SelectItem key={item.key}>{item.label || item.value}</SelectItem>
       ))}
     </Select>
   );

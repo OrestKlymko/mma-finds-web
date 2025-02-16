@@ -12,7 +12,6 @@ import PhoneInput from "../../ui/inputs/PhoneInput";
 import Password from "../../ui/inputs/Pasword";
 import { IoIosArrowBack } from "react-icons/io";
 import { Inputs } from "../../../types/inputs";
-import SignIn from "./SignIn";
 
 function SignUp() {
   const {

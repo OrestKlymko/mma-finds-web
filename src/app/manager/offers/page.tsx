@@ -12,6 +12,14 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Breadcrumbs from "../../../components/Breadcrums/Breadcrums";
 import OfferCard from "../../../components/ui/OfferCard";
 
+function Page() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <OffersPage />
+    </Suspense>
+  );
+}
+
 function OffersPage() {
   const [isOpened, setIsOpened] = useState(false);
   const modalRef = useCloseModal(() => setIsOpened(false));
@@ -40,7 +48,7 @@ function OffersPage() {
   };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <>
       <section className="bg-black flex flex-col items-center justify-center  min-h-[340px] gap-6">
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-white text-3xl font-semibold">
@@ -233,8 +241,8 @@ function OffersPage() {
           />
         </div>
       </section>
-    </Suspense>
+    </>
   );
 }
 
-export default OffersPage;
+export default Page;

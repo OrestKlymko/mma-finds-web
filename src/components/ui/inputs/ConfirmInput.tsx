@@ -39,10 +39,9 @@ function ConfirmInput({
       variant="bordered"
       size="md"
       classNames={{
+        inputWrapper: "border border-black",
         input: "z-10",
-        mainWrapper: "border border-black rounded-md",
-        inputWrapper: "border-none relative",
-        label: "text-[0.75rem]",
+        label: "text-sm",
       }}
       endContent={
         <div className="flex items-center gap-2 absolute right-[0.75rem] top-1/2 -translate-y-1/2">

@@ -3,7 +3,7 @@
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import Image from "next/image";
-import { useUser } from "../../Providers/UserProvider";
+import { useUser } from "../Providers/UserProvider";
 
 function Subscribe() {
   const { user } = useUser();

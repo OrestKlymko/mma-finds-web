@@ -33,7 +33,7 @@ function Header() {
           })}
         >
           {navigationLinks.map((link) => (
-            <NavLink key={link.name} href={link.href}>
+            <NavLink key={link.name} href={link.href} includes>
               {link.name}
             </NavLink>
           ))}

@@ -7,7 +7,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import { useModal } from "../../../Providers/ModalProvider";
 import { FaCheck } from "react-icons/fa";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 
 function ApplyFighterModal({ name, date }: { name: string; date: string }) {
@@ -74,8 +74,8 @@ function FeatureFighter() {
         <p className="text-center">You currently have 5 credits left.</p>
       </div>
       <p className="text-center">
-        Do you want to elevate your fighter's position, securing a prime spot{" "}
-        <br />
+        Do you want to elevate your fighter&apos;s position, securing a prime
+        spot <br />
         on the list of potential fighters?
       </p>
       <Button
@@ -115,13 +115,13 @@ function SuccessModal({
           You have successfully applied{" "}
           <span className="text-green">{name}</span> for this offer.
           <br />
-          We'll keep you posted once the best match is chosen!
+          Wex&apos;ll keep you posted once the best match is chosen!
         </p>
       )}
       {type === "featuring" && (
         <p className="text-center">
-          Thank you for featuring your fighter's position! As a result, your
-          fighter secures
+          Thank you for featuring your fighter&apos;s position! As a result,
+          your fighter secures
           <br />a prime spot on the list of submitted fighters.{" "}
         </p>
       )}
@@ -141,8 +141,8 @@ function OppsModal() {
     <FighterModalLayout>
       <h6 className="text-green text-base">Opps!</h6>
       <p className="text-center">
-        You've hit the maximum number of fighters allowed for submission with{" "}
-        <br />
+        You&apos;ve hit the maximum number of fighters allowed for submission
+        with <br />
         your current subscription plan.
       </p>
       <Button

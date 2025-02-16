@@ -46,7 +46,9 @@ function Submissions() {
         <div className="max-w-screen-xl mx-auto">
           <h3 className="font-normal text-xl text-center mb-6">
             Submissions of{" "}
-            <span className="text-green">John "The Punisher" Smith</span>
+            <span className="text-green">
+              John `&quot;The Punisher`&quot; Smith
+            </span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             <Button

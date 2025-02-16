@@ -1,12 +1,12 @@
 "use client";
 
-import Subscribe from "../ui/subscribe/Subscribe";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 import { useUser } from "../Providers/UserProvider";
 import FooterNavigationHome from "./FooterNavigation/FooterNavigationHome";
 import FooterNavigationManager from "./FooterNavigation/FooterNavigationManager";
+import Subscribe from "../Subscribe/Subscribe";
 
 function Footer() {
   const { user } = useUser();

@@ -10,8 +10,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { IoIosArrowForward } from "react-icons/io";
 import { Button } from "@nextui-org/button";
 import clsx from "clsx";
-import { useForm } from "react-hook-form";
-import { Inputs } from "../../types/inputs";
 
 enum ActiveFilterList {
   countries = "countries",
@@ -23,14 +21,6 @@ enum ActiveFilterList {
 function FighterFilter() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { register, handleSubmit, setValue, getValues } = useForm<Inputs>({
-    defaultValues: {
-      place: searchParams.get("place") || "",
-      promotions: searchParams.get("promotions") || "",
-      rules: searchParams.get("rules") || "",
-      weight: searchParams.get("weight") || "",
-    },
-  });
 
   const [place, setPlace] = useState<string | null>(
     searchParams.get("place") || null

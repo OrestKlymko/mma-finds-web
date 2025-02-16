@@ -13,7 +13,8 @@ function RejectParticipationModal() {
     <FighterModalLayout>
       <h6 className="text-red text-base">Reject Participation</h6>
       <p className="text-center">
-        Before finalizing, are you sure about rejecting John's submission <br />
+        Before finalizing, are you sure about rejecting John&apos;s submission{" "}
+        <br />
         for the upcoming fight?
       </p>
       <Button
@@ -40,7 +41,7 @@ function RejectParticipationModal2() {
       <p className="text-center">
         The submission of John for this offer has been officially canceled.{" "}
         <br />
-        We'll notify Oktagon about your decision.
+        We&apos;ll notify Oktagon about your decision.
       </p>
       <Button
         className=" text-white text-sm max-w-[300px] w-full"
