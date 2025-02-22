@@ -37,4 +37,6 @@ export type Inputs = {
   instagram: string;
   x: string;
   facebook: string;
+  category: string;
+  file: File;
 };

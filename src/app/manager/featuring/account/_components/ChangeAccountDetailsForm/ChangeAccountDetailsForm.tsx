@@ -3,7 +3,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Inputs } from "../../../../../../types/inputs";
 import { useEffect } from "react";
-import FileInput from "../../../../../../components/ui/inputs/FileInput";
+
 import CustomInput from "../../../../../../components/ui/inputs/CustomInput";
 import SwitchCustom from "../../../../../../components/ui/inputs/Switch";
 import ConfirmInput from "../../../../../../components/ui/inputs/ConfirmInput";
@@ -13,6 +13,7 @@ import CustomSelect from "../../../../../../components/ui/inputs/CustomSelect";
 import { countries } from "../../../../../../constants/contries";
 import SocialMedia from "../../../../../../components/ui/inputs/SocialMedia";
 import { Textarea } from "@nextui-org/input";
+import PhotoInput from "../../../../../../components/ui/inputs/PhotoInput";
 
 function ChangeAccountDetailsForm() {
   const {
@@ -37,7 +38,7 @@ function ChangeAccountDetailsForm() {
     <>
       <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
         <h6 className="mb-6">Change Account Details</h6>
-        <FileInput
+        <PhotoInput
           className="w-1/2"
           register={register("photo", { required: true })}
           label="Your profile picture*"

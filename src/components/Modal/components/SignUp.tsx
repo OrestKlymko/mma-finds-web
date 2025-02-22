@@ -4,7 +4,7 @@ import { Button } from "@nextui-org/button";
 
 import { useEffect } from "react";
 import { ModalType, useModal } from "../../Providers/ModalProvider";
-import FileInput from "../../ui/inputs/FileInput";
+
 import CustomInput from "../../ui/inputs/CustomInput";
 import SwitchCustom from "../../ui/inputs/Switch";
 import ConfirmInput from "../../ui/inputs/ConfirmInput";
@@ -12,6 +12,7 @@ import PhoneInput from "../../ui/inputs/PhoneInput";
 import Password from "../../ui/inputs/Pasword";
 import { IoIosArrowBack } from "react-icons/io";
 import { Inputs } from "../../../types/inputs";
+import PhotoInput from "../../ui/inputs/PhotoInput";
 
 function SignUp() {
   const {
@@ -46,7 +47,7 @@ function SignUp() {
       >
         <h2>Sign Up as Manager</h2>
 
-        <FileInput
+        <PhotoInput
           register={register("photo", { required: true })}
           label="Your profile picture*"
           setValue={setValue}

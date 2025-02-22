@@ -3,12 +3,13 @@
 import { Button } from "@nextui-org/button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { Input, Textarea } from "@nextui-org/input";
-import FileInput from "../ui/inputs/FileInput";
+
 import CustomInput from "../ui/inputs/CustomInput";
 import CustomSelect from "../ui/inputs/CustomSelect";
 import { CustomRadioGroup } from "../ui/inputs/CustomRadioQroup";
 import SwitchCustom from "../ui/inputs/Switch";
 import { Inputs } from "../../types/inputs";
+import PhotoInput from "../ui/inputs/PhotoInput";
 
 function CreateFighterForm() {
   const { register, handleSubmit, setValue, getValues } = useForm<Inputs>();
@@ -24,7 +25,7 @@ function CreateFighterForm() {
         onSubmit={handleSubmit(onSubmit)}
         style={{ margin: "0 auto" }}
       >
-        <FileInput
+        <PhotoInput
           register={register("photo", { required: true })}
           label="Photo*"
           className="w-1/2"
