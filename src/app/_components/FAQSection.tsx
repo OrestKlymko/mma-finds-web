@@ -1,10 +1,10 @@
-import { FAQ } from "../../mock/FAQs";
-import FAQBox from "../../components/ui/FAQItem";
+import { FAQ } from '../../mock/FAQs';
+import FAQBox from '../../components/ui/FAQItem';
 
 function FAQSection() {
   const faqs = FAQ;
   return (
-    <section id="FAQ" className=" py-28">
+    <section id="FAQ" className=" py-28 px-4 mb:py-6">
       <div className="max-w-screen-xl mx-auto flex flex-col gap-7 ">
         <h2 className="text-center">FAQs</h2>
         <p className="text-sm text-center font-light">

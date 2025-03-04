@@ -1,13 +1,13 @@
-import { Button } from "@nextui-org/button";
-import Image from "next/image";
+import { Button } from '@nextui-org/button';
+import Image from 'next/image';
 
 function HeroBlackSection() {
   return (
-    <section className="bg-[#131313] px-32 pt-28 flex flex-row-reverse justify-center items-center gap-32">
+    <section className="bg-[#131313] px-32 pt-28 flex flex-row-reverse mb:flex-col justify-center items-center gap-32 mb:px-4 mb:pt-12">
       <div className="flex flex-col justify-center gap-20">
         <div className="flex flex-col gap-7">
           <h2 className="capitalize text-6xl font-medium text-white leading-tight">
-            your ultimate <br />{" "}
+            your ultimate <br />{' '}
             <span className="text-green-800">matchmaking platform</span>
           </h2>
           <p className="capitalize text-white font-light">

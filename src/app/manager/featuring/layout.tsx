@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import SideBar from "./_components/SideBar/SideBar";
-import Breadcrumbs from "../../../components/Breadcrums/Breadcrums";
+import { ReactNode } from 'react';
+import SideBar from './_components/SideBar/SideBar';
+import Breadcrumbs from '../../../components/Breadcrums/Breadcrums';
 
 function Layout({ children }: { children: ReactNode }) {
   return (
@@ -12,7 +12,7 @@ function Layout({ children }: { children: ReactNode }) {
         <Breadcrumbs />
       </section>
       <section className="py-12 px-4">
-        <div className="max-w-screen-xl mx-auto flex gap-4">
+        <div className="max-w-screen-xl mx-auto flex gap-4 relative">
           <SideBar />
           {children}
         </div>

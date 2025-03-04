@@ -1,32 +1,32 @@
-import Image from "next/image";
-import Breadcrumbs from "../../../../components/Breadcrums/Breadcrums";
-import FightDetails from "../../../../components/ui/Table";
-import { Button } from "@nextui-org/button";
-import OfferCard from "../../../../components/ui/OfferCard";
-import { IoIosHeart } from "react-icons/io";
-import SubmitFighterSection from "./_components/SubmitFighterSection";
-import { Suspense } from "react";
+import Image from 'next/image';
+import Breadcrumbs from '../../../../components/Breadcrums/Breadcrums';
+import FightDetails from '../../../../components/ui/Table';
+import { Button } from '@nextui-org/button';
+import OfferCard from '../../../../components/ui/OfferCard';
+import { IoIosHeart } from 'react-icons/io';
+import SubmitFighterSection from './_components/SubmitFighterSection';
+import { Suspense } from 'react';
 
 function Page() {
   const fightData = [
-    { label: "Date", value: "2023-10-15" },
-    { label: "Location", value: "Las Vegas, NV" },
-    { label: "Referee", value: "John Doe" },
-    { label: "Rounds", value: "5", isBold: true },
-    { label: "Title Fight", value: "Yes", isBold: true },
+    { label: 'Date', value: '2023-10-15' },
+    { label: 'Location', value: 'Las Vegas, NV' },
+    { label: 'Referee', value: 'John Doe' },
+    { label: 'Rounds', value: '5', isBold: true },
+    { label: 'Title Fight', value: 'Yes', isBold: true },
   ];
 
   const fighterRequirements = [
-    { label: "Gender", value: "Male" },
-    { label: "Weight Class", value: "Welterweight" },
-    { label: "Based In", value: "Europe" },
-    { label: "Minimum Fights", value: "3" },
-    { label: "Maximum Fights", value: "12" },
-    { label: "Minimum Win/Loss Ratio", value: "2:1" },
+    { label: 'Gender', value: 'Male' },
+    { label: 'Weight Class', value: 'Welterweight' },
+    { label: 'Based In', value: 'Europe' },
+    { label: 'Minimum Fights', value: '3' },
+    { label: 'Maximum Fights', value: '12' },
+    { label: 'Minimum Win/Loss Ratio', value: '2:1' },
     {
-      label: "Additional Information",
+      label: 'Additional Information',
       value:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.',
     },
   ];
   return (
@@ -47,8 +47,8 @@ function Page() {
       </section>
       <SubmitFighterSection />
       <section className="py-7 px-4">
-        <div className="max-w-screen-xl mx-auto flex gap-20">
-          <div className="w-3/4">
+        <div className="max-w-screen-xl mx-auto flex gap-20 mb:flex-col-reverse">
+          <div className="w-3/4 mb:w-full">
             <h2 className="text-green mb-20 uppercase">Oktagon 32</h2>
             <h6 className="mb-6 capitalize">about the event</h6>
             <p className="mb-12">
@@ -69,7 +69,7 @@ function Page() {
               />
             </div>
           </div>
-          <div className="w-1/4 shrink-0">
+          <div className="w-1/4 shrink-0 mb:w-full">
             <Button className="capitalize mb-20" fullWidth color="secondary">
               submit fighter
             </Button>
@@ -129,7 +129,7 @@ function Page() {
       <section className="py-7 px-4">
         <div className="max-w-screen-xl mx-auto ">
           <h6 className="mb-6">Other Offers You May Like</h6>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <OfferCard
               title="OKTAGON 50"
               date="20.03.2023"

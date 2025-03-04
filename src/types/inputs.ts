@@ -1,7 +1,7 @@
 export type Inputs = {
   name: string;
   password: string;
-  "new-password": string;
+  'new-password': string;
   nickname: string;
   sex: string;
   photo: { file: File; width: number; height: number } | null;
@@ -39,4 +39,12 @@ export type Inputs = {
   facebook: string;
   category: string;
   file: File;
+  date: string;
+  duration: string;
+  rule: string;
+  isTitle: boolean;
+  fightLength: string;
+  purse: string;
+  benefits: string;
+  addMoreInfo: string;
 };

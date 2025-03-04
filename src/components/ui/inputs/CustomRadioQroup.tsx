@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import clsx from "clsx";
-import { useLayoutEffect, useRef, useState } from "react";
-import { UseFormRegisterReturn } from "react-hook-form";
+import clsx from 'clsx';
+import { useLayoutEffect, useRef, useState } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 export function CustomRadioGroup({
   items,
@@ -22,12 +22,12 @@ export function CustomRadioGroup({
   className?: string;
   label?: string;
   name?: string;
-  bgColor?: "gray" | "green";
-  width?: "auto" | "fit";
+  bgColor?: 'gray' | 'green';
+  width?: 'auto' | 'fit';
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   containerWidth?: number;
   checked?: string | null;
-  type?: "radio" | "checkbox";
+  type?: 'radio' | 'checkbox';
 }) {
   const [optionsList, setOptionsList] = useState(items);
   const [isVisible, setIsVisible] = useState(false);
@@ -48,46 +48,46 @@ export function CustomRadioGroup({
 
     updateList();
 
-    window.addEventListener("resize", updateList);
-    return () => window.removeEventListener("resize", updateList);
+    window.addEventListener('resize', updateList);
+    return () => window.removeEventListener('resize', updateList);
   }, [optionsList, containerWidth]);
 
   return (
     <div
       className={clsx(className, {
-        "opacity-0": !isVisible && containerWidth,
-        "w-full": width === "auto" || width === undefined,
-        "w-fit": width === "fit",
+        'opacity-0': !isVisible && containerWidth,
+        'w-full': width === 'auto' || width === undefined,
+        'w-fit': width === 'fit',
       })}
       ref={ref}
     >
       {label && <p className="text-[0.75rem] leading-none mb-3">{label}</p>}
-      <div className={clsx("flex gap-2 items-end")}>
+      <div className={clsx('flex gap-2 items-end')}>
         {optionsList.map((item) => (
           <label
             id={name}
             className={clsx({
-              "flex-1 w-full": width === "auto" || width === undefined,
-              "w-fit": width === "fit",
+              'flex-1 w-full': width === 'auto' || width === undefined,
+              'w-fit': width === 'fit',
             })}
             key={item.key}
           >
             <input
               className="hidden peer"
-              type={type || "radio"}
+              type={type || 'radio'}
               value={item.key}
               {...register}
             />
             <span
               className={clsx(
-                "flex bg-gray items-center justify-center h-10 rounded-md cursor-pointer text-nowrap whitespace-nowrap",
+                'flex bg-gray items-center justify-center h-10 rounded-md cursor-pointer text-nowrap whitespace-nowrap',
                 {
-                  "peer-checked:bg-gray-dark":
-                    bgColor === "gray" || bgColor === undefined,
-                  "peer-checked:bg-green peer-checked:text-white":
-                    bgColor === "green",
-                  "px-4": width === "fit",
-                }
+                  'peer-checked:bg-gray-dark':
+                    bgColor === 'gray' || bgColor === undefined,
+                  'peer-checked:bg-green peer-checked:text-white':
+                    bgColor === 'green',
+                  'px-4': width === 'fit',
+                },
               )}
             >
               {item.label || item.value}
@@ -117,12 +117,12 @@ export function CustomRadioGroupControlled({
   className?: string;
   label?: string;
   name?: string;
-  bgColor?: "gray" | "green";
-  width?: "auto" | "fit";
+  bgColor?: 'gray' | 'green';
+  width?: 'auto' | 'fit';
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   containerWidth?: number;
   checked?: string | null;
-  type?: "radio" | "checkbox";
+  type?: 'radio' | 'checkbox';
 }) {
   const [optionsList, setOptionsList] = useState(items);
   const [isVisible, setIsVisible] = useState(false);
@@ -132,7 +132,7 @@ export function CustomRadioGroupControlled({
     if (!containerWidth) return;
     const updateList = () => {
       if (ref.current) {
-        if (ref.current.offsetWidth > 450) {
+        if (ref.current.offsetWidth > 300) {
           setOptionsList((prev) => prev.slice(0, prev.length - 1));
           return;
         } else {
@@ -143,33 +143,33 @@ export function CustomRadioGroupControlled({
 
     updateList();
 
-    window.addEventListener("resize", updateList);
-    return () => window.removeEventListener("resize", updateList);
+    window.addEventListener('resize', updateList);
+    return () => window.removeEventListener('resize', updateList);
   }, [optionsList, containerWidth]);
 
   return (
     <div
       className={clsx(className, {
-        "opacity-0": !isVisible && containerWidth,
-        "w-full": width === "auto" || width === undefined,
-        "w-fit": width === "fit",
+        'opacity-0': !isVisible && containerWidth,
+        'w-full': width === 'auto' || width === undefined,
+        'w-fit': width === 'fit',
       })}
       ref={ref}
     >
       {label && <p className="text-[0.75rem] leading-none mb-3">{label}</p>}
-      <div className={clsx("flex gap-2 items-end")}>
+      <div className={clsx('flex gap-2 items-end')}>
         {optionsList.map((item) => (
           <label
             id={name}
             className={clsx({
-              "flex-1 w-full": width === "auto" || width === undefined,
-              "w-fit": width === "fit",
+              'flex-1 w-full': width === 'auto' || width === undefined,
+              'w-fit': width === 'fit',
             })}
             key={item.key}
           >
             <input
               className="hidden peer"
-              type={type || "radio"}
+              type={type || 'radio'}
               value={item.key}
               name={name}
               onChange={onChange}
@@ -178,14 +178,14 @@ export function CustomRadioGroupControlled({
             />
             <span
               className={clsx(
-                "flex bg-gray items-center justify-center h-10 rounded-md cursor-pointer text-nowrap whitespace-nowrap",
+                'flex bg-gray items-center justify-center h-10 rounded-md cursor-pointer text-nowrap whitespace-nowrap',
                 {
-                  "peer-checked:bg-gray-dark":
-                    bgColor === "gray" || bgColor === undefined,
-                  "peer-checked:bg-green peer-checked:text-white":
-                    bgColor === "green",
-                  "px-4": width === "fit",
-                }
+                  'peer-checked:bg-gray-dark':
+                    bgColor === 'gray' || bgColor === undefined,
+                  'peer-checked:bg-green peer-checked:text-white':
+                    bgColor === 'green',
+                  'px-4': width === 'fit',
+                },
               )}
             >
               {item.label || item.value}

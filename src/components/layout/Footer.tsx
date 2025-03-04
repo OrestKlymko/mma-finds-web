@@ -1,48 +1,53 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
-import clsx from "clsx";
-import { useUser } from "../Providers/UserProvider";
-import FooterNavigationHome from "./FooterNavigation/FooterNavigationHome";
-import FooterNavigationManager from "./FooterNavigation/FooterNavigationManager";
-import Subscribe from "../Subscribe/Subscribe";
+import Link from 'next/link';
+import Image from 'next/image';
+import clsx from 'clsx';
+import { useUser } from '../Providers/UserProvider';
+import FooterNavigationHome from './FooterNavigation/FooterNavigationHome';
+import FooterNavigationManager from './FooterNavigation/FooterNavigationManager';
+import Subscribe from '../Subscribe/Subscribe';
 
 function Footer() {
   const { user } = useUser();
   return (
-    <footer>
-      <div className="max-w-screen-xl mx-auto py-20 flex justify-between gap-10">
-        <div className={clsx({ "order-5": user })}>
-          <Subscribe />
+    <footer className="">
+      <div className="px-4">
+        <div className="max-w-screen-xl mx-auto py-20 flex mb:flex-wrap mb:justify-start justify-between gap-10">
+          <div className={clsx({ 'order-5': user })}>
+            <Subscribe />
+          </div>
+          {!user ? <FooterNavigationHome /> : <FooterNavigationManager />}
         </div>
-        {!user ? <FooterNavigationHome /> : <FooterNavigationManager />}
       </div>
       {!user && (
         <div className="pb-7">
           <p className="text-center text-base">
             You privacy matter to us. We are committed to protection your data.
-            Read our{" "}
+            Read our{' '}
             <a className="font-medium" href="">
               Privacy Policy
-            </a>{" "}
-            &{" "}
+            </a>{' '}
+            &{' '}
             <a className="font-medium" href="">
               Terms and Conditions
-            </a>{" "}
+            </a>{' '}
             for more information.
           </p>
         </div>
       )}
       <div
-        className={clsx(" py-4 px-6 flex justify-between", {
-          "bg-black": !user,
-          "bg-gray": user,
-        })}
+        className={clsx(
+          ' py-4 px-6 flex justify-between mb:flex-col mb:gap-4',
+          {
+            'bg-black': !user,
+            'bg-gray': user,
+          },
+        )}
       >
-        <Link href={"/"}>
+        <Link href={'/'}>
           <Image
-            className={clsx("h-full", { invert: !user })}
+            className={clsx('h-full', { invert: !user })}
             src="/logo.svg"
             alt="Logo"
             width={170}
@@ -53,14 +58,14 @@ function Footer() {
           <ul className="flex gap-4">
             <li>
               <a
-                className={clsx("p-1 h-fit aspect-square  rounded-sm block", {
-                  "bg-green": user,
-                  "bg-white": !user,
+                className={clsx('p-1 h-fit aspect-square  rounded-sm block', {
+                  'bg-green': user,
+                  'bg-white': !user,
                 })}
                 href="#"
               >
                 <Image
-                  className={clsx("h-full", { invert: !user })}
+                  className={clsx('h-full', { invert: !user })}
                   src="/icons/instagram.svg"
                   alt="Logo"
                   width={18}
@@ -71,14 +76,14 @@ function Footer() {
 
             <li>
               <a
-                className={clsx("p-1 h-fit aspect-square  rounded-sm block", {
-                  "bg-green": user,
-                  "bg-white": !user,
+                className={clsx('p-1 h-fit aspect-square  rounded-sm block', {
+                  'bg-green': user,
+                  'bg-white': !user,
                 })}
                 href="#"
               >
                 <Image
-                  className={clsx("h-full", { invert: !user })}
+                  className={clsx('h-full', { invert: !user })}
                   src="/icons/facebook.svg"
                   alt="Logo"
                   width={18}
@@ -88,14 +93,14 @@ function Footer() {
             </li>
             <li>
               <a
-                className={clsx("p-1 h-fit aspect-square  rounded-sm block", {
-                  "bg-green": user,
-                  "bg-white": !user,
+                className={clsx('p-1 h-fit aspect-square  rounded-sm block', {
+                  'bg-green': user,
+                  'bg-white': !user,
                 })}
                 href="#"
               >
                 <Image
-                  className={clsx("h-full", { invert: !user })}
+                  className={clsx('h-full', { invert: !user })}
                   src="/icons/linkedin.svg"
                   alt="Logo"
                   width={18}
@@ -104,8 +109,8 @@ function Footer() {
               </a>
             </li>
           </ul>
-          <p className={clsx({ "text-white": !user })}>English</p>
-          <p className={clsx({ "text-white": !user })}>€ EUR</p>
+          <p className={clsx({ 'text-white': !user })}>English</p>
+          <p className={clsx({ 'text-white': !user })}>€ EUR</p>
         </div>
       </div>
     </footer>

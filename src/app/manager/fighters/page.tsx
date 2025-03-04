@@ -1,17 +1,17 @@
-import { Button } from "@nextui-org/button";
-import { Input } from "@nextui-org/input";
-import Image from "next/image";
-import { Suspense } from "react";
-import { IoIosSearch } from "react-icons/io";
-import Breadcrumbs from "../../../components/Breadcrums/Breadcrums";
-import FighterCard from "../../../components/ui/FighterCard";
-import { FiPlus } from "react-icons/fi";
-import Link from "next/link";
+import { Button } from '@nextui-org/button';
+import { Input } from '@nextui-org/input';
+import Image from 'next/image';
+import { Suspense } from 'react';
+import { IoIosSearch } from 'react-icons/io';
+import Breadcrumbs from '../../../components/Breadcrums/Breadcrums';
+import FighterCard from '../../../components/ui/FighterCard';
+import { FiPlus } from 'react-icons/fi';
+import Link from 'next/link';
 
 function FightersPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <section className="bg-black flex flex-col items-center justify-center  min-h-[340px] gap-6">
+      <section className="bg-black flex flex-col items-center justify-center  min-h-[340px] gap-6 px-4">
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-white text-3xl font-semibold">My Fighters</h1>
           <p className="text-medium text-white">
@@ -40,7 +40,7 @@ function FightersPage() {
           </div>
         </div>
       </section>
-      <section className="py-4 border-b-2 border-gray">
+      <section className="py-4 border-b-2 border-gray px-4">
         <Breadcrumbs />
       </section>
       <section className="py-7 px-4 min-h-[60dvh]">

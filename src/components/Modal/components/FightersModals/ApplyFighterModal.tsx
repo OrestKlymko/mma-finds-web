@@ -1,23 +1,22 @@
-"use client";
+'use client';
 
-import { Button } from "@nextui-org/button";
-import FighterModalLayout from "../../layout/FighterModalLayout";
-import CustomSelect from "../../../ui/inputs/CustomSelect";
-import { useState } from "react";
-import clsx from "clsx";
-import { useModal } from "../../../Providers/ModalProvider";
-import { FaCheck } from "react-icons/fa";
-
-import { useRouter } from "next/navigation";
+import { Button } from '@nextui-org/button';
+import FighterModalLayout from '../../layout/FighterModalLayout';
+import { useState } from 'react';
+import clsx from 'clsx';
+import { useModal } from '../../../Providers/ModalProvider';
+import { FaCheck } from 'react-icons/fa';
+import { useRouter } from 'next/navigation';
+import { Select, SelectItem } from '@heroui/select';
 
 function ApplyFighterModal({ name, date }: { name: string; date: string }) {
   const [selectedFighter, setSelectedFighter] = useState<string | null>(null);
   const { openModal } = useModal();
 
   const items = [
-    { key: "Jon Fighter", label: "Jon Fighter" },
-    { key: "Jon Fighter2", label: "Jon Fighter2" },
-    { key: "Jon Fighter3", label: "Jon Fighter3" },
+    { key: 'Jon Fighter', label: 'Jon Fighter' },
+    { key: 'Jon Fighter2', label: 'Jon Fighter2' },
+    { key: 'Jon Fighter3', label: 'Jon Fighter3' },
   ];
 
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -25,7 +24,7 @@ function ApplyFighterModal({ name, date }: { name: string; date: string }) {
   };
 
   const onSubmit = () => {
-    console.log("submit", selectedFighter);
+    console.log('submit', selectedFighter);
     openModal(<FeatureFighter />);
   };
 
@@ -41,17 +40,29 @@ function ApplyFighterModal({ name, date }: { name: string; date: string }) {
         Note that only fighters that meet the requirements are displayed.
       </p>
       <div className="flex flex-col items-center gap-2 w-full">
-        <CustomSelect
-          label="Choose a Fighter"
-          className="max-w-[300px] w-full"
-          items={items}
+        <Select
+          selectedKeys={selectedFighter || ''}
           onChange={onChange}
-        />
+          variant="bordered"
+          label={'Choose a fighter'}
+          labelPlacement="outside"
+          fullWidth
+          size="md"
+          classNames={{
+            selectorIcon: 'scale-[1.4] rotate-[270deg]',
+            trigger: 'border border-black',
+            label: 'text-[0.75rem]',
+          }}
+        >
+          {items.map((item) => (
+            <SelectItem key={item.key}>{item.label}</SelectItem>
+          ))}
+        </Select>
         <Button
           isDisabled={!selectedFighter}
-          className={clsx(" text-white text-sm max-w-[300px] w-full", {
-            "bg-[#3D3D3D]": !selectedFighter,
-            "bg-green": selectedFighter,
+          className={clsx(' text-white text-sm max-w-[300px] w-full', {
+            'bg-[#3D3D3D]': !selectedFighter,
+            'bg-green': selectedFighter,
           })}
           onPress={onSubmit}
         >
@@ -101,7 +112,7 @@ function SuccessModal({
   type,
 }: {
   name: string;
-  type: "featuring" | "applying";
+  type: 'featuring' | 'applying';
 }) {
   return (
     <FighterModalLayout>
@@ -110,19 +121,19 @@ function SuccessModal({
       </div>
 
       <h6 className="text-black capitalize text-base">Success!</h6>
-      {type === "applying" && (
+      {type === 'applying' && (
         <p className="text-center">
-          You have successfully applied{" "}
+          You have successfully applied{' '}
           <span className="text-green">{name}</span> for this offer.
           <br />
           Wex&apos;ll keep you posted once the best match is chosen!
         </p>
       )}
-      {type === "featuring" && (
+      {type === 'featuring' && (
         <p className="text-center">
           Thank you for featuring your fighter&apos;s position! As a result,
           your fighter secures
-          <br />a prime spot on the list of submitted fighters.{" "}
+          <br />a prime spot on the list of submitted fighters.{' '}
         </p>
       )}
     </FighterModalLayout>
@@ -134,7 +145,7 @@ function OppsModal() {
   const { closeModal } = useModal();
 
   const onClick = () => {
-    router.push("/manager");
+    router.push('/manager');
     closeModal();
   };
   return (

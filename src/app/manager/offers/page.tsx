@@ -1,16 +1,16 @@
-"use client";
-import { Button } from "@nextui-org/button";
-import { Input } from "@nextui-org/input";
-import Image from "next/image";
-import { IoIosSearch } from "react-icons/io";
-import FighterFilter from "../../../components/FighterFilter/FighterFilter";
-import { Suspense, useEffect, useState } from "react";
-import { motion } from "motion/react";
-import { useCloseModal } from "../../../hooks/useCloseModal";
-import { IoMdClose } from "react-icons/io";
-import { useRouter, useSearchParams } from "next/navigation";
-import Breadcrumbs from "../../../components/Breadcrums/Breadcrums";
-import OfferCard from "../../../components/ui/OfferCard";
+'use client';
+import { Button } from '@nextui-org/button';
+import { Input } from '@nextui-org/input';
+import Image from 'next/image';
+import { IoIosSearch } from 'react-icons/io';
+import FighterFilter from '../../../components/FighterFilter/FighterFilter';
+import { Suspense, useEffect, useState } from 'react';
+import { motion } from 'motion/react';
+import { useCloseModal } from '../../../hooks/useCloseModal';
+import { IoMdClose } from 'react-icons/io';
+import { useRouter, useSearchParams } from 'next/navigation';
+import Breadcrumbs from '../../../components/Breadcrums/Breadcrums';
+import OfferCard from '../../../components/ui/OfferCard';
 
 function Page() {
   return (
@@ -49,7 +49,7 @@ function OffersPage() {
 
   return (
     <>
-      <section className="bg-black flex flex-col items-center justify-center  min-h-[340px] gap-6">
+      <section className="bg-black flex flex-col items-center justify-center  min-h-[340px] gap-6 px-4">
         <div className="flex flex-col items-center gap-2">
           <h1 className="text-white text-3xl font-semibold">
             Fight Offers Feed
@@ -114,10 +114,10 @@ function OffersPage() {
           )}
         </div>
       </section>
-      <section className="py-4 border-b-2 border-gray">
+      <section className="py-4 border-b-2 border-gray px-4">
         <Breadcrumbs />
       </section>
-      <section className="py-7">
+      <section className="py-7 px-4">
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <OfferCard
             title="OKTAGON 50"
@@ -178,7 +178,7 @@ function OffersPage() {
             place="Prague, Czech Republic"
             purse="€5000-€6000"
             isSaved
-          />{" "}
+          />{' '}
           <OfferCard
             title="OKTAGON 50"
             date="20.03.2023"

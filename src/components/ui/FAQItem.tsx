@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useRef } from "react";
-import { GoPlus } from "react-icons/go";
-import { LuMinus } from "react-icons/lu";
+import { useState, useRef } from 'react';
+import { GoPlus } from 'react-icons/go';
+import { LuMinus } from 'react-icons/lu';
 
 function FAQBox({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,16 +16,16 @@ function FAQBox({ question, answer }: { question: string; answer: string }) {
       <div className="flex items-center justify-between">
         <p className="text-base">{question}</p>
         {isOpen ? (
-          <LuMinus className="w-5 h-5" />
+          <LuMinus className="w-5 h-5 shrink-0" />
         ) : (
-          <GoPlus className="w-5 h-5" />
+          <GoPlus className="w-5 h-5 shrink-0" />
         )}
       </div>
       <div
         className={`overflow-hidden transition-all duration-[300ms] ease-out `}
         style={{
-          height: isOpen ? `${contentRef.current?.scrollHeight}px` : "0px",
-          marginTop: isOpen ? "1rem" : "0rem",
+          height: isOpen ? `${contentRef.current?.scrollHeight}px` : '0px',
+          marginTop: isOpen ? '1rem' : '0rem',
         }}
       >
         <div ref={contentRef}>

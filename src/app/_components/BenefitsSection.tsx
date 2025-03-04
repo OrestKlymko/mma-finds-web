@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { Button, ButtonGroup } from "@nextui-org/button";
-import { useState } from "react";
+import { Button, ButtonGroup } from '@nextui-org/button';
+import { useState } from 'react';
 
 function BenefitsSection() {
   const [isManager, setIsManager] = useState(true);
 
   return (
-    <section id="benefits" className="py-28">
+    <section id="benefits" className="py-28 px-4 mb:py-12">
       <div className="max-w-screen-xl mx-auto flex flex-col gap-7 items-center">
         <h5 className="">WHY US</h5>
         <div className="flex flex-col items-center gap-4">
@@ -19,7 +19,7 @@ function BenefitsSection() {
           <ButtonGroup className="flex rounded-sm w-full max-w-sm" size="lg">
             <Button
               onPress={() => setIsManager(true)}
-              color={isManager ? "secondary" : "primary"}
+              color={isManager ? 'secondary' : 'primary'}
               fullWidth
               radius="sm"
             >
@@ -28,7 +28,7 @@ function BenefitsSection() {
             <Button
               onPress={() => setIsManager(false)}
               radius="sm"
-              color={!isManager ? "secondary" : "primary"}
+              color={!isManager ? 'secondary' : 'primary'}
               fullWidth
             >
               Promotion

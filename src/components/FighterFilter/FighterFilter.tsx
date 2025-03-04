@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { CustomRadioGroupControlled } from "../ui/inputs/CustomRadioQroup";
-import { countries } from "../../constants/contries";
-import { MMARules } from "../../constants/MMARules";
-import { promotion } from "../../constants/promotions";
-import { weightClass } from "../../constants/weightClass";
-import { useRouter, useSearchParams } from "next/navigation";
-import { IoIosArrowForward } from "react-icons/io";
-import { Button } from "@nextui-org/button";
-import clsx from "clsx";
+import { useState } from 'react';
+import { CustomRadioGroupControlled } from '../ui/inputs/CustomRadioQroup';
+import { countries } from '../../constants/contries';
+import { MMARules } from '../../constants/MMARules';
+import { promotion } from '../../constants/promotions';
+import { weightClass } from '../../constants/weightClass';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { IoIosArrowForward } from 'react-icons/io';
+import { Button } from '@nextui-org/button';
+import clsx from 'clsx';
 
 enum ActiveFilterList {
-  countries = "countries",
-  promotions = "promotions",
-  rules = "rules",
-  weight = "weight",
+  countries = 'countries',
+  promotions = 'promotions',
+  rules = 'rules',
+  weight = 'weight',
 }
 
 function FighterFilter() {
@@ -23,39 +23,39 @@ function FighterFilter() {
   const searchParams = useSearchParams();
 
   const [place, setPlace] = useState<string | null>(
-    searchParams.get("place") || null
+    searchParams.get('place') || null,
   );
   const [promotions, setPromotions] = useState<string | null>(
-    searchParams.get("promotions") || null
+    searchParams.get('promotions') || null,
   );
   const [rules, setRules] = useState<string | null>(
-    searchParams.get("rules") || null
+    searchParams.get('rules') || null,
   );
   const [weight, setWeight] = useState<string | null>(
-    searchParams.get("weight") || null
+    searchParams.get('weight') || null,
   );
 
   const [activeFilters, setActiveFilters] = useState<ActiveFilterList | null>(
-    null
+    null,
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let fn = setPromotions;
     let value = place;
     switch (e.target.name) {
-      case "countries":
+      case 'countries':
         fn = setPlace;
         value = place;
         break;
-      case "promotions":
+      case 'promotions':
         fn = setPromotions;
         value = promotions;
         break;
-      case "rules":
+      case 'rules':
         fn = setRules;
         value = rules;
         break;
-      case "weight":
+      case 'weight':
         fn = setWeight;
         value = weight;
         break;
@@ -83,13 +83,13 @@ function FighterFilter() {
   const setName = (type: ActiveFilterList) => {
     switch (type) {
       case ActiveFilterList.countries:
-        return "countries";
+        return 'countries';
       case ActiveFilterList.promotions:
-        return "promotions";
+        return 'promotions';
       case ActiveFilterList.rules:
-        return "rules";
+        return 'rules';
       case ActiveFilterList.weight:
-        return "weight";
+        return 'weight';
     }
   };
 
@@ -107,27 +107,27 @@ function FighterFilter() {
   };
 
   const showResults = () => {
-    searchParams.get("position");
+    searchParams.get('position');
     const params = new URLSearchParams(searchParams.toString());
     if (place) {
-      params.set("place", place);
+      params.set('place', place);
     } else {
-      params.delete("place");
+      params.delete('place');
     }
     if (promotions) {
-      params.set("promotions", promotions);
+      params.set('promotions', promotions);
     } else {
-      params.delete("promotions");
+      params.delete('promotions');
     }
     if (rules) {
-      params.set("rules", rules);
+      params.set('rules', rules);
     } else {
-      params.delete("rules");
+      params.delete('rules');
     }
     if (weight) {
-      params.set("weight", weight);
+      params.set('weight', weight);
     } else {
-      params.delete("weight");
+      params.delete('weight');
     }
     router.replace(`?${params.toString()}`, { scroll: false });
   };
@@ -138,11 +138,11 @@ function FighterFilter() {
     setRules(null);
     setWeight(null);
     setActiveFilters(null);
-    router.replace("/manager/offers", { scroll: false });
+    router.replace('/manager/offers', { scroll: false });
   };
 
   return (
-    <div className="">
+    <div className="w-full">
       <button
         className="absolute top-4 right-4 capitalize text-[0.85rem] font-semibold text-green"
         onClick={onClearAll}
@@ -152,7 +152,7 @@ function FighterFilter() {
       <p className="text-medium font-medium text-center">Filters</p>
       {!activeFilters && (
         <div className="flex flex-col gap-8 items-center">
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 w-full">
             <div className="flex items-center gap-2">
               <CustomRadioGroupControlled
                 label="Event Place"
@@ -160,7 +160,7 @@ function FighterFilter() {
                 name="countries"
                 items={countries}
                 width="fit"
-                containerWidth={400}
+                containerWidth={window.innerWidth < 560 ? 400 : 200}
                 onChange={handleChange}
                 checked={place}
                 type="checkbox"
@@ -180,7 +180,7 @@ function FighterFilter() {
                 name="promotions"
                 items={promotion}
                 width="fit"
-                containerWidth={400}
+                containerWidth={window.innerWidth < 560 ? 400 : 300}
                 onChange={handleChange}
                 checked={promotions}
                 type="checkbox"
@@ -200,7 +200,7 @@ function FighterFilter() {
                 name="rules"
                 items={MMARules}
                 width="fit"
-                containerWidth={400}
+                containerWidth={window.innerWidth < 560 ? 400 : 300}
                 onChange={handleChange}
                 checked={rules}
                 type="checkbox"
@@ -213,7 +213,7 @@ function FighterFilter() {
                 name="weight"
                 items={weightClass}
                 width="fit"
-                containerWidth={400}
+                containerWidth={window.innerWidth < 560 ? 400 : 300}
                 onChange={handleChange}
                 checked={weight}
                 type="checkbox"
@@ -293,10 +293,10 @@ function FilterListDetailed({
             <div className="w-3 h-3 border border-black rounded-full p-[0.06rem] flex items-center justify-center">
               <div
                 className={clsx(
-                  "w-full h-full rounded-full peer-checked:bg-green",
+                  'w-full h-full rounded-full peer-checked:bg-green',
                   {
-                    "bg-green": checked === item.key,
-                  }
+                    'bg-green': checked === item.key,
+                  },
                 )}
               ></div>
             </div>

@@ -1,6 +1,7 @@
-import Image from "next/image";
-import { IoIosHeart } from "react-icons/io";
-import { IoIosArrowForward } from "react-icons/io";
+import Image from 'next/image';
+import Link from 'next/link';
+import { IoIosHeart } from 'react-icons/io';
+import { IoIosArrowForward } from 'react-icons/io';
 
 interface OfferCardProps {
   image: string;
@@ -14,6 +15,11 @@ interface OfferCardProps {
   purse?: string;
   isSaved?: boolean;
   isTitle?: boolean;
+  eventDate?: string;
+  eventPlace?: string;
+  eventDuration?: string;
+  link?: string;
+  customAction?: () => void;
 }
 
 function OfferCard({
@@ -28,9 +34,17 @@ function OfferCard({
   purse,
   isSaved,
   isTitle,
+  eventDate,
+  eventPlace,
+  eventDuration,
+  link,
+  customAction,
 }: OfferCardProps) {
   return (
-    <div className="w-full bg-gray rounded-medium flex flex-col">
+    <div
+      className="w-full bg-gray rounded-medium flex flex-col"
+      onClick={customAction}
+    >
       <div className="aspect-[2] w-full overflow-hidden">
         <Image
           className="w-full h-full object-cover object-center"
@@ -68,9 +82,16 @@ function OfferCard({
           <p className="font-medium">Weight Class: {weightClass}</p>
         )}
         {purse && <p className="font-medium">Purse: {purse}</p>}
-        <div className="absolute bottom-8 right-8 w-4 h-4">
-          <IoIosArrowForward className="w-full h-full" color="green" />
-        </div>
+        {eventDate && <p className="font-medium">Event Date: {eventDate}</p>}
+        {eventPlace && <p className="font-medium">Event Place: {eventPlace}</p>}
+        {eventDuration && (
+          <p className="font-medium">Event Duration: {eventDuration}</p>
+        )}
+        {link && !customAction && (
+          <Link href={link} className="absolute bottom-8 right-8 w-4 h-4 block">
+            <IoIosArrowForward className="w-full h-full" color="green" />
+          </Link>
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import NavLink from "../../../../components/ui/NavigatinLink";
+import { ReactNode } from 'react';
+import NavLink from '../../../../components/ui/NavigatinLink';
 
 function layout({ children }: { children: ReactNode }) {
   return (
@@ -7,7 +7,7 @@ function layout({ children }: { children: ReactNode }) {
       <div className="w-full bg-gray-light p-4 rounded-md self-start">
         <h6 className="text-2xl text-center">Preferences</h6>
       </div>
-      <ul className="flex gap-8 border-b border-gray-light">
+      <ul className="flex gap-8 border-b border-gray-light mb:flex-wrap mb:justify-start">
         <li>
           <NavLink
             className="text-base font-medium pb-2 block h-full"

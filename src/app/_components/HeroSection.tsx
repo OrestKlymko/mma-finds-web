@@ -1,14 +1,14 @@
-import { Button } from "@nextui-org/button";
-import Image from "next/image";
+import { Button } from '@nextui-org/button';
+import Image from 'next/image';
 
 function HeroSection() {
   return (
-    <section className="bg-gray py-28">
-      <div className="max-w-screen-xl mx-auto flex justify-between items-center">
+    <section className="bg-gray py-28 px-4 mb:py-12">
+      <div className="max-w-screen-xl mx-auto flex mb:flex-col-reverse mb:gap-4 justify-between items-center">
         <div className="flex flex-col justify-center gap-8">
           <div className="flex flex-col gap-4">
             <h1 className="uppercase text-5xl font-extrabold">
-              your ultimate <br />{" "}
+              your ultimate <br />{' '}
               <span className="text-green">matchmaking platform</span>
             </h1>
             <p className="capitalize">

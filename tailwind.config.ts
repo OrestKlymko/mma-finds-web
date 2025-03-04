@@ -1,36 +1,39 @@
-import { heroui } from "@heroui/theme";
-import { nextui } from "@nextui-org/theme";
-import type { Config } from "tailwindcss";
+import { heroui } from '@heroui/theme';
+import { nextui } from '@nextui-org/theme';
+import type { Config } from 'tailwindcss';
 
 export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@nextui-org/theme/dist/components/(button|input|toggle|ripple|spinner|form).js",
-    "./node_modules/@heroui/theme/dist/components/(radio|select|form|listbox|divider|popover|button|ripple|spinner|scroll-shadow).js",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@nextui-org/theme/dist/components/(button|input|toggle|ripple|spinner|form).js',
+    './node_modules/@heroui/theme/dist/components/(radio|select|form|listbox|divider|popover|button|ripple|spinner|scroll-shadow).js',
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        gray: "var(--background-gray)",
-        "gray-second": "#e8e8e8",
-        "gray-dark": "var(--background-gray-dark)",
-        foreground: "var(--foreground)",
-        backdrop: "var(--backdrop)",
-        green: "#1B5441",
-        yellow: "#ffd301",
-        "gray-text": "#ABABAB",
-        "gray-light": "#F2F2F2",
-        red: "#980909",
+        background: 'var(--background)',
+        gray: 'var(--background-gray)',
+        'gray-second': '#e8e8e8',
+        'gray-dark': 'var(--background-gray-dark)',
+        foreground: 'var(--foreground)',
+        backdrop: 'var(--backdrop)',
+        green: '#1B5441',
+        yellow: '#ffd301',
+        'gray-text': '#ABABAB',
+        'gray-light': '#F2F2F2',
+        red: '#980909',
       },
       boxShadow: {
-        plain: "0 0 25px -5px rgb(0 0 0 / 0.1)",
+        plain: '0 0 25px -5px rgb(0 0 0 / 0.1)',
       },
       fontSize: {
-        sm: "0.75rem",
-        xs: "0.65rem",
+        sm: '0.75rem',
+        xs: '0.65rem',
+      },
+      screens: {
+        mb: { max: '756px' }, // Custom media query
       },
     },
   },
@@ -41,11 +44,11 @@ export default {
         light: {
           // ...
           colors: {
-            secondary: { DEFAULT: "#1B5441" },
-            primary: { DEFAULT: "#f2f2f2", foreground: "#000" },
+            secondary: { DEFAULT: '#1B5441' },
+            primary: { DEFAULT: '#f2f2f2', foreground: '#000' },
           },
           layout: {
-            radius: { small: "0.3rem", medium: "0.3rem" },
+            radius: { small: '0.3rem', medium: '0.3rem' },
           },
         },
       },

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { ReactNode, useEffect, useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import { ReactNode, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const Portal = ({
   children,
@@ -15,16 +15,16 @@ const Portal = ({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    elRef.current = document.createElement("div");
+    elRef.current = document.createElement('div');
     document.body.appendChild(elRef.current);
-    document.body.classList.add("overflow-hidden");
+    document.body.classList.add('overflow-hidden');
     setMounted(true);
 
     return () => {
       if (elRef.current && document.body.contains(elRef.current)) {
         document.body.removeChild(elRef.current);
       }
-      document.body.classList.remove("overflow-hidden");
+      document.body.classList.remove('overflow-hidden');
     };
   }, []);
 
@@ -32,7 +32,7 @@ const Portal = ({
     ? createPortal(
         <div
           ref={backdropRef}
-          className="fixed inset-0 w-full h-dvh bg-backdrop flex items-center justify-center"
+          className="fixed inset-0 w-full h-dvh bg-backdrop flex items-center justify-center z-50"
           onClick={(e) => {
             if (e.target === backdropRef.current) {
               onClose();
@@ -41,7 +41,7 @@ const Portal = ({
         >
           {children}
         </div>,
-        elRef.current
+        elRef.current,
       )
     : null;
 };

@@ -19,8 +19,8 @@ function ThanksForFeedbackModal() {
       <p className="text-center">
         Your contribution is valued, and we appreciate your effort in helping us
         enhance the user <br />
-        experience. We'll carefully consider your suggestion to make our app
-        even better.
+        experience. We&apos;ll carefully consider your suggestion to make our
+        app even better.
       </p>
     </div>
   );

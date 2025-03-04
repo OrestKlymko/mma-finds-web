@@ -1,23 +1,23 @@
-import clsx from "clsx";
-import { useState } from "react";
-import CustomInput from "../../ui/inputs/CustomInput";
-import PaymentMethod from "../../ui/inputs/PaymentMethod";
-import { Button } from "@nextui-org/button";
-import { useModal } from "../../Providers/ModalProvider";
-import SuccessFeatureCreditModal from "./SuccessFeatureCreditModal";
+import clsx from 'clsx';
+import { useState } from 'react';
+import CustomInput from '../../ui/inputs/CustomInput';
+import PaymentMethod from '../../ui/inputs/PaymentMethod';
+import { Button } from '@nextui-org/button';
+import { useModal } from '../../Providers/ModalProvider';
+import SuccessFeatureCreditModal from './SuccessFeatureCreditModal';
 
 const options = [
-  { key: "1 Feature Credit", price: "€9,99" },
-  { key: "5 Feature Credit", price: "€39,99" },
-  { key: "10 Feature Credit", price: "€69,99" },
+  { key: '1 Feature Credit', price: '€9,99' },
+  { key: '5 Feature Credit', price: '€39,99' },
+  { key: '10 Feature Credit', price: '€69,99' },
 ];
 
 function ChoseCreditOptionModal() {
   const [option, setOption] = useState({
-    key: "1 Feature Credit",
-    price: "€9,99",
+    key: '1 Feature Credit',
+    price: '€9,99',
   });
-  const [promoCode, setPromoCode] = useState<string>("");
+  const [promoCode, setPromoCode] = useState<string>('');
   const { openModal } = useModal();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,14 +25,14 @@ function ChoseCreditOptionModal() {
   };
 
   const onApplyPromo = () => {
-    console.log("apply", promoCode);
+    console.log('apply', promoCode);
   };
   const onPay = () => {
     openModal(<SuccessFeatureCreditModal />);
   };
 
   return (
-    <div className="w-full max-w-[900px] h-full max-h-[600px] grid grid-cols-2 gap-8 overflow-hidden rounded-3xl bg-white px-20 py-16">
+    <div className="w-full max-w-[900px] h-full max-h-[600px] grid grid-cols-2 mb:grid-cols-1 gap-8 overflow-hidden mb:overflow-y-auto rounded-3xl bg-white px-20 py-16 mb:px-4">
       <div className="flex flex-col justify-center gap-4">
         <div>
           <h3 className="font-medium">Choose Credit Option</h3>
@@ -44,11 +44,11 @@ function ChoseCreditOptionModal() {
             <li key={opt.key}>
               <div
                 className={clsx(
-                  "flex justify-between items-center px-6 py-6 rounded-md",
+                  'flex justify-between items-center px-6 py-6 rounded-md',
                   {
-                    "bg-green text-white": option.key === opt.key,
-                    "bg-gray": option.key !== opt.key,
-                  }
+                    'bg-green text-white': option.key === opt.key,
+                    'bg-gray': option.key !== opt.key,
+                  },
                 )}
                 onClick={() => setOption(opt)}
               >
@@ -64,7 +64,7 @@ function ChoseCreditOptionModal() {
         <div className="flex flex-col gap-2">
           <div
             className={clsx(
-              "flex justify-between items-center px-6 py-6 rounded-md bg-gray"
+              'flex justify-between items-center px-6 py-6 rounded-md bg-gray',
             )}
           >
             <p>{option.key}</p>

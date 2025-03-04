@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { IoMdNotificationsOutline } from "react-icons/io";
-import { IoMailOpenOutline } from "react-icons/io5";
-import { BsTrash3 } from "react-icons/bs";
-import DropdownWrapper from "../../DropDownWrapper/DropDownWrapper";
-import clsx from "clsx";
+import { useState } from 'react';
+import { IoMdNotificationsOutline } from 'react-icons/io';
+import { IoMailOpenOutline } from 'react-icons/io5';
+import { BsTrash3 } from 'react-icons/bs';
+import DropdownWrapper from '../../DropDownWrapper/DropDownWrapper';
+import clsx from 'clsx';
 
 function NotificationButton() {
   const [isEditing, setIsEditing] = useState(false);
@@ -11,24 +11,24 @@ function NotificationButton() {
   return (
     <div className="relative">
       <div
-        className={clsx(" rounded-full p-2 cursor-pointer", {
-          "bg-green": isDropdownOpen,
-          "bg-gray-light": !isDropdownOpen,
+        className={clsx(' rounded-full p-2 cursor-pointer', {
+          'bg-green': isDropdownOpen,
+          'bg-gray-light': !isDropdownOpen,
         })}
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
         <IoMdNotificationsOutline
-          className={clsx("text-xl", {
-            "text-white": isDropdownOpen,
-            "text-black": !isDropdownOpen,
+          className={clsx('text-xl', {
+            'text-white': isDropdownOpen,
+            'text-black': !isDropdownOpen,
           })}
         />
       </div>
       {isDropdownOpen && (
         <DropdownWrapper
-          className="flex flex-col items-center gap-4 right-0 w-96 shadow-2xl max-h-[600px] overflow-y-auto rounded-sm bg-white"
+          className="mb:-right-44 flex flex-col items-center gap-4 right-0 w-96 shadow-2xl max-h-[600px] overflow-y-auto rounded-sm bg-white"
           onClose={() => setIsDropdownOpen(false)}
-          style={{ top: "calc(100% + 1rem)" }}
+          style={{ top: 'calc(100% + 1rem)' }}
         >
           <div>
             <h6 className=" w-full p-4 bg-white shadow sticky top-0 z-10 text-center">
@@ -101,15 +101,15 @@ function NotificationItem({
       </div>
       {isEditing && (
         <div className="flex gap-2 self-center">
-          <div className="flex flex-col items-center py-2 gap-1">
+          <button className="flex flex-col items-center py-2 gap-1">
             <IoMailOpenOutline className="text-green w-4 h-4" />
             <p className="capitalize text-green text-[0.6rem]">unread</p>
-          </div>
+          </button>
           <span className="w-[2px] bg-gray group-hover:bg-white"></span>
-          <div className="flex flex-col items-center py-2 gap-1">
-            <BsTrash3 className="text-red-600 w-4 h-4" />
-            <p className="capitalize text-red-600 text-[0.6rem]">delete</p>
-          </div>
+          <button className="flex flex-col items-center py-2 gap-1">
+            <BsTrash3 className="text-red w-4 h-4" />
+            <p className="capitalize text-red text-[0.6rem]">delete</p>
+          </button>
         </div>
       )}
     </div>

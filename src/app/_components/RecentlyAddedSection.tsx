@@ -1,6 +1,6 @@
 function RecentlyAddedSection() {
   return (
-    <section id="news" className="py-28">
+    <section id="news" className="py-28 px-4 mb:py-6">
       <div className="max-w-screen-xl mx-auto flex flex-col items-center gap-7">
         <h2>Recently added to your platform</h2>
         <p className="font-light text-sm">
